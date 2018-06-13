@@ -1,0 +1,46 @@
+{
+  "messages" :
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "This is a message",
+    "timestamp": 1528763298535,
+    "isEdited": true,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "This is another message",
+    "timestamp": 1528763298535,
+    "isEdited": false,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "Hello there?",
+    "timestamp": 1528763298535,
+    "isEdited": true,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "Who's talking?",
+    "timestamp": 1528763298535,
+    "isEdited": true,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "Is this thing on?",
+    "timestamp": 1528763298535,
+    "isEdited": true,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "Yeehaw",
+    "timestamp": 1528763298535,
+    "isEdited": false,
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "Another message",
+    "timestamp": 1528763298535,
+    "isEdited": false,
+  }
+}
+

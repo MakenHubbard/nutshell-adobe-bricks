@@ -1,0 +1,30 @@
+{
+  "tasks" : {
+    "task00" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    },
+    "task01" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Change the engine oil",
+      "isCompleted": true
+    },
+    "task02" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Balance budget",
+      "isCompleted": false
+    },
+    "task03" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Clean kitchen",
+      "isCompleted": false
+    },
+    "task04" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "See friends",
+      "isCompleted": false
+    },
+
+  }
+}
