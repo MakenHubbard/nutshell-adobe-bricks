@@ -12,7 +12,12 @@
 </head>
 
 <body>
-  <div class="container-fluid" id="authentication">
+
+  <nav>
+    <!-- navbar html here -->
+  </nav>
+
+  <div class="container-fluid hide" id="authentication">
     <div class="jumbotron text-center" id="splash">
       <h1>Welcome to Nutshell</h1>
       <p>Keep track of your personal life with Nutshell!</p>
@@ -40,7 +45,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Sign in</button>
+            <button class="btn btn-default">Sign in</button>
           </div>
         </div>
       </form>
@@ -72,13 +77,29 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Register</button>
+            <button class="btn btn-default">Register</button>
           </div>
         </div>
       </form>
     </div>
   </div>
+
+  <div class="container-fluid" id="main-view">
+    <div class="col-xs-12 col-md-8" id="left-side">
+      <div class="col-xs-12 left-module" id="articles-view"><h1>Articles</h1></div>
+      <div class="col-xs-12 left-module" id="tasks-view"><h1>Tasks</h1></div>
+      <div class="col-xs-12 left-module" id="events-view"><h1>Events</h1></div>
+    </div>
+    <div class="col-xs-12 col-md-4" id="right-side">
+      <div class="col-xs-12 right-module" id="friends-view"><h1>Friends</h1></div>
+      <div class="col-xs-12 right-module" id="messages-view"><h1>Messages</h1></div>
+    </div>
+  </div>
+
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script src="/dist/app.js"></script>
 </body>
