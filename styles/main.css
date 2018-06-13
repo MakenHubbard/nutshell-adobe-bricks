@@ -20,6 +20,7 @@ body {
   height: 32%;
   background-color: lightblue;
   margin-bottom: 2%;
+  overflow-y: scroll;
 }
 
 .left-module:last-of-type {
@@ -38,6 +39,7 @@ body {
   height: 33%;
   background-color: red;
   margin-bottom: 2%;
+  overflow-y: scroll;
 }
 
 #messages-view {
@@ -45,6 +47,7 @@ body {
   background-color: purple;
   margin-top: 2%;
   margin-bottom: 0;
+  overflow-y: scroll;
 }
 
 /* END RIGHT SIDE MODULE STYLES */
