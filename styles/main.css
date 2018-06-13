@@ -2,3 +2,43 @@ body {
   background-color: #aaffaa;
 }
 
+#authentication {
+  margin-top: 2em;
+}
+
+#main-view {
+  height: 95vh;
+  padding-top: 50px;
+}
+/* LEFT SIDE MODULE STYLES */
+
+#left-side {
+  height: 100%;
+}
+
+.left-module {
+  background-color: blue;
+  height: 30%;
+  margin-bottom: 3%;
+}
+
+/* END LEFT SIDE MODULE STYLES */
+
+/* RIGHT SIDE MODULE STYLES */
+
+#right-side {
+  height: 100%;
+}
+
+#friends-view {
+  height: 35%;
+  background-color: red;
+  margin-bottom: 5%;
+}
+
+#messages-view {
+  height: 62%;
+  background-color: purple;
+}
+
+/* END RIGHT SIDE MODULE STYLES */
