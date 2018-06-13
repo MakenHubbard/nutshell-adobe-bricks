@@ -19,7 +19,12 @@ body {
 .left-module {
   background-color: blue;
   height: 30%;
-  margin-bottom: 3%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+
+.left-module:first-of-type {
+  margin-top: 0;
 }
 
 /* END LEFT SIDE MODULE STYLES */
@@ -31,14 +36,16 @@ body {
 }
 
 #friends-view {
-  height: 35%;
+  height: 33%;
   background-color: red;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 #messages-view {
-  height: 62%;
+  height: 63%;
   background-color: purple;
+  margin-top: 2%;
+  margin-bottom: 0;
 }
 
 /* END RIGHT SIDE MODULE STYLES */
