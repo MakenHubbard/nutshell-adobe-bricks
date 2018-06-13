@@ -1,0 +1,7 @@
+.DS_Store
+.vscode
+lib/node_modules
+db/apiKeys.json
+build
+dist
+haters
