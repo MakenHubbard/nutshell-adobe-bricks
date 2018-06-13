@@ -8,7 +8,7 @@ body {
 
 #main-view {
   height: 95vh;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 /* LEFT SIDE MODULE STYLES */
 
@@ -17,14 +17,13 @@ body {
 }
 
 .left-module {
-  background-color: blue;
-  height: 30%;
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  height: 32%;
+  background-color: lightblue;
+  margin-bottom: 2%;
 }
 
-.left-module:first-of-type {
-  margin-top: 0;
+.left-module:last-of-type {
+  margin-bottom: 0;
 }
 
 /* END LEFT SIDE MODULE STYLES */
