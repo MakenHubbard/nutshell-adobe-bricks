@@ -9,6 +9,72 @@
   <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
+  <div class="container-fluid" id="authentication">
+    <div class="jumbotron text-center" id="splash">
+      <h1>Welcome to Nutshell</h1>
+      <p>Keep track of your personal life with Nutshell!</p>
+      <a id="jumbo-register" class="btn btn-lg btn-primary">Register</a>
+      <a id="jumbo-signin" class="btn btn-lg btn-primary">Sign In</a>
+    </div>
+    <div id="signin-form" class="col-md-4 col-md-offset-4 hide">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="signin-email" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="signin-email" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signin-pass" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="signin-pass" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a id="register-link">Register</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="register-form" class="col-md-4 col-md-offset-4 hide">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="register-username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="register-username" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="register-email" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-pass" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="register-pass" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <a id='signin-link'>Sign In</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script src="/dist/app.js"></script>
