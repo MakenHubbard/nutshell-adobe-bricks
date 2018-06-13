@@ -1,0 +1,40 @@
+{
+  "events" : {
+    "event00" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Bonfire at the beach",
+      "startDate": 1528763298535,
+      "location": "Ocean Beach"
+    },
+    "event01" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Day drinking",
+      "startDate": 1528763298535,
+      "location": "Anywhere"
+    },
+    "event02" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Hiking",
+      "startDate": 1528763298535,
+      "location": "The mall"
+    },
+    "event03" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Night drinking",
+      "startDate": 1528763298535,
+      "location": "Alone in the dark"
+    },
+    "event04" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Bocee Ball",
+      "startDate": 1528763298535,
+      "location": "Lawn"
+    },
+    "event05" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "event": "Generic 80s Cover Bands",
+      "startDate": 1528763298535,
+      "location": "The bar"
+    }
+  }
+}
