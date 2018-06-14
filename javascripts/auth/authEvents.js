@@ -1,3 +1,5 @@
+const {getAllMessages,} = require('../messages/firebaseApi');
+
 const logOut = (e) => {
   e.preventDefault();
   firebase.auth().signOut()
@@ -51,6 +53,8 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  getAllMessages();
+  // show messages here
 };
 
 module.exports = {
