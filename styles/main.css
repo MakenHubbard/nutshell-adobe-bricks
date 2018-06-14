@@ -1,5 +1,7 @@
 body {
   background-color: #aaffaa;
+  background-image: url('/images/bricks.jpg');
+  background-size: cover;
 }
 
 #authentication {
@@ -7,8 +9,8 @@ body {
 }
 
 #main-view {
-  height: 95vh;
-  padding-top: 60px;
+  height: 90vh;
+  /* padding-top: 60px; */
 }
 /* LEFT SIDE MODULE STYLES */
 
@@ -54,6 +56,17 @@ body {
   width: 100%;
   background-color: #FFD300;
   color: white;
+  margin: 0;
 }
 
 /* END RIGHT SIDE MODULE STYLES */
+
+/* navbar styles */
+
+.navbar {
+  background-color: pink;
+  color: purple;
+}
+
+
+/* end of navbar styles */
