@@ -1,3 +1,7 @@
+// Initialize Firebase and set and get config
+// Michael Clark
+const {checkLoginStatus,} = require('../auth/auth');
+
 let config = {};
 
 const getConfig = () => {
@@ -22,7 +26,7 @@ const initialize = () => {
   loadConfig().then(firebaseConfig => {
     setConfig(firebaseConfig);
     firebase.initializeApp(firebaseConfig);
-    // check login status
+    checkLoginStatus();
   }).catch(err => {
     console.error('Error initializing Firebase', err);
   });

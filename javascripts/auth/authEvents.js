@@ -55,4 +55,6 @@ const dashBoardView = () => {
 
 module.exports = {
   authEvents,
+  dashBoardView,
+  viewSplashPage,
 };
