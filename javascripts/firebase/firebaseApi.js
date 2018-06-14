@@ -22,8 +22,48 @@ const loadConfig = () => {
   });
 };
 
+const getAllUsernames = () => {
+  return new Promise((resolve, reject) => {
+    const usernamesArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${config.databaseURL}/users.json`,
+    })
+      .done(fbResponseUsernames => {
+        if (fbResponseUsernames !== null) {
+          Object.keys(fbResponseUsernames).forEach(fbKey => {
+            fbResponseUsernames[fbKey].id = fbKey;
+            usernamesArray.push(fbResponseUsernames[fbKey]);
+          });
+        }
+        resolve(usernamesArray);
+      })
+      .fail(error => {
+        reject(error);
+      });
+  });
+};
+
+const addNewUsername = userToAdd => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'POST',
+      url: `${config.databaseURL}/users.json`,
+      data: JSON.stringify(userToAdd),
+    })
+      .done(uniqueKey => {
+        resolve(uniqueKey);
+      })
+      .fail(error => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   getConfig,
   setConfig,
   loadConfig,
+  getAllUsernames,
+  addNewUsername,
 };

@@ -1,3 +1,10 @@
+const firebaseApi = require('../firebase/firebaseApi');
+
+let inputUsername = '';
+let inputEmail = '';
+let inputPass = '';
+let userToAddToCollection = '';
+
 const logOut = (e) => {
   e.preventDefault();
   firebase.auth().signOut()
@@ -6,6 +13,60 @@ const logOut = (e) => {
     }).catch(function (error) {
       console.error('error in log out', error);
     });
+};
+
+const addUserToUsersCollection = () => {
+  firebaseApi.addNewUsername(userToAddToCollection);
+};
+
+const registerUniqueUser = booleanResult => {
+  if (booleanResult === true) {
+    firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPass)
+      .then(user => {
+        userToAddToCollection = {
+          userUid: user.user.uid,
+          username: inputUsername,
+        };
+        dashBoardView();
+      })
+      .then(() => {
+        addUserToUsersCollection();
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  } else {
+    alert('Username is already taken, please choose another.');
+  }
+};
+
+const checkNewUserIsUnique = () => {
+  let booleanResult = true; // true means a unique username
+  firebaseApi.getAllUsernames()
+    .then(usernameArray => {
+      for (let i = 0; i < usernameArray.length; i++) {
+        if (usernameArray[i].username === inputUsername) {
+          booleanResult = false;
+        }
+      }
+      return booleanResult;
+    })
+    .then(booleanResult => {
+      registerUniqueUser(booleanResult);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+};
+
+const registerButtonClicked = () => {
+  $('#register-btn').click(e => {
+    e.preventDefault();
+    inputUsername = $('#register-username').val();
+    inputEmail = $('#register-email').val();
+    inputPass = $('#register-pass').val();
+    checkNewUserIsUnique();
+  });
 };
 
 const viewRegister = () => {
@@ -31,6 +92,7 @@ const authEvents = () => {
   $('#jumbo-register, #register-link').click(viewRegister);
   $('#logOutButt').click(logOut);
   logInNutShell();
+  registerButtonClicked();
 };
 
 const logInNutShell = () => {
