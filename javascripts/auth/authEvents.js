@@ -1,3 +1,13 @@
+const logOut = (e) => {
+  e.preventDefault();
+  firebase.auth().signOut()
+    .then((results) => {
+      viewSplashPage();
+    }).catch(function (error) {
+      console.error('error in log out', error);
+    });
+};
+
 const viewRegister = () => {
   $('#register-form').removeClass('hide');
   $('#signin-form').addClass('hide');
@@ -7,6 +17,20 @@ const viewSignin = () => {
   $('#signin-form').removeClass('hide');
   $('#register-form').addClass('hide');
   $('#splash').addClass('hide');
+};
+
+const viewSplashPage = () => {
+  $('#main-view').addClass('hide');
+  $('#authentication').removeClass('hide');
+  $('#signin-form').addClass('hide');
+  $('#register-form').addClass('hide');
+  $('#splash').removeClass('hide');
+};
+const authEvents = () => {
+  $('#jumbo-signin, #signin-link').click(viewSignin);
+  $('#jumbo-register, #register-link').click(viewRegister);
+  $('#logOutButt').click(logOut);
+  logInNutShell();
 };
 
 const logInNutShell = () => {
@@ -27,12 +51,6 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
-};
-
-const authEvents = () => {
-  $('#jumbo-signin, #signin-link').click(viewSignin);
-  $('#jumbo-register, #register-link').click(viewRegister);
-  logInNutShell();
 };
 
 module.exports = {
