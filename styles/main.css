@@ -52,6 +52,8 @@ body {
 
 #friends-tabs {
   width: 100%;
+  background-color: #FFD300;
+  color: white;
 }
 
 /* END RIGHT SIDE MODULE STYLES */
