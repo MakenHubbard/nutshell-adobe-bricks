@@ -1,4 +1,4 @@
-const {getAllMessages,} = require('../messages/firebaseApi');
+const { getAllMessages, } = require('../messages/messagesFirebaseApi');
 
 const logOut = (e) => {
   e.preventDefault();
@@ -53,7 +53,12 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
-  getAllMessages();
+  getAllMessages().then((results) => {
+    console.log(results);
+  })
+    .catch((error) => {
+      console.error(error);
+    });
   // show messages here
 };
 

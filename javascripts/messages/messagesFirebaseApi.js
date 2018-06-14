@@ -1,5 +1,5 @@
 // Maken - getting messages,
-const { getConfig, } = require('../javascripts/firebase/firebaseApi');
+const { getConfig, } = require('../firebase/firebaseApi');
 
 const getAllMessages = () => {
   return new Promise((resolve, reject) => {
@@ -23,7 +23,6 @@ const getAllMessages = () => {
   });
 };
 
-getAllMessages();
 module.exports = {
   getAllMessages,
 };
