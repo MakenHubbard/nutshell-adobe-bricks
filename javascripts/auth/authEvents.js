@@ -1,3 +1,10 @@
+const firebaseApi = require('../firebase/firebaseApi');
+
+let inputUsername = '';
+let inputEmail = '';
+let inputPass = '';
+let userToAddToCollection = '';
+
 const logOut = (e) => {
   e.preventDefault();
   firebase.auth().signOut()
@@ -8,26 +15,57 @@ const logOut = (e) => {
     });
 };
 
-const registerUniqueUser = (inputUser, inputEmail, inputPass) => {
-  console.log('input user, temp, ', inputUser);
-  firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPass)
-    .then(user => {
-      console.log('.then is here, ', user);
-      dashBoardView();
+const addUserToUsersCollection = () => {
+  firebaseApi.addNewUsername(userToAddToCollection);
+};
+
+const registerUniqueUser = booleanResult => {
+  if (booleanResult === true) {
+    firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPass)
+      .then(user => {
+        userToAddToCollection = {
+          userUid: user.user.uid,
+          username: inputUsername,
+        };
+        dashBoardView();
+      })
+      .then(() => {
+        addUserToUsersCollection();
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
+  } else {
+    alert('Username is already taken, please choose another.');
+  }
+};
+
+const checkNewUserIsUnique = () => {
+  let booleanResult = true; // true means a unique username
+  firebaseApi.getAllUsernames()
+    .then(usernameArray => {
+      for (let i = 0; i < usernameArray.length; i++) {
+        if (usernameArray[i].username === inputUsername) {
+          booleanResult = false;
+        }
+      }
+      return booleanResult;
     })
-    .catch((error) => {
-      console.error(error.message);
+    .then(booleanResult => {
+      registerUniqueUser(booleanResult);
+    })
+    .catch(error => {
+      console.error(error);
     });
 };
 
 const registerButtonClicked = () => {
   $('#register-btn').click(e => {
     e.preventDefault();
-    const username = $('#register-username');
-    const email = $('#register-email').val();
-    const pass = $('#register-pass').val();
-    registerUniqueUser(username, email, pass);
-
+    inputUsername = $('#register-username').val();
+    inputEmail = $('#register-email').val();
+    inputPass = $('#register-pass').val();
+    checkNewUserIsUnique();
   });
 };
 
