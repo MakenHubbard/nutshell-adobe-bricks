@@ -1,0 +1,38 @@
+{
+  "event" : [ {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "event": "Bonfire at the beach",
+    "startDate": 1528763298535,
+    "location": "Ocean Beach"
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "event": "Generic 80s Cover Band",
+    "startDate": 1528763298535,
+    "location": "The Bar"
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "event": "Day drinking",
+    "startDate": 1528763298535,
+    "location": "Nashville"
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "event": "Boat Show",
+    "startDate": 1528763298535,
+    "location": "Center Hill Lake"
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "event": "Riding ugly horses",
+    "startDate": 1528763298535,
+    "location": "Doesn't matter"
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "event": "Study Group",
+    "startDate": 1528763298535,
+    "location": "erday'"
+  }  ]
+}

@@ -1,0 +1,38 @@
+{
+  "message" : [ {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "What's up?",
+    "timestamp": 1528763298535,
+    "isEdited": true
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "message": "Hello",
+    "timestamp": 1528763298535,
+    "isEdited": false
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "What's that smell?",
+    "timestamp": 1528763298535,
+    "isEdited": true
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "message": "Another message",
+    "timestamp": 1528763298535,
+    "isEdited": false
+  },
+  {
+    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "message": "This is great",
+    "timestamp": 1528763298535,
+    "isEdited": false
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "message": "Final message",
+    "timestamp": 1528763298535,
+    "isEdited": true
+  }  ]
+}
