@@ -1,3 +1,5 @@
+const newsInit = require('../newsArtitcles/newsMain');
+
 const logOut = (e) => {
   e.preventDefault();
   firebase.auth().signOut()
@@ -51,6 +53,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  newsInit();
 };
 
 module.exports = {
