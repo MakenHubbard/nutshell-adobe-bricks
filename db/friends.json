@@ -1,28 +1,26 @@
 {
-  "friends" : {
-    "friend" : [ {
-      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
-      "friendUid": "gH4EPO4i88HIql25ykBb0xyadPZL",
-      "isAccepted": false,
-      "isPending": false
-    },
-    {
-      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
-      "friendUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "isAccepted": false,
-      "isPending": true
-    },
-    {
-      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
-      "friendUid": "gH4EPO4i88HIql25ykBb0xyadPZL",
-      "isAccepted": true,
-      "isPending": false
-    },
-    {
-      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
-      "friendUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "isAccepted": true,
-      "isPending": true
-    } ]
-  }
+  "friend" : [ {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "friendUid": "gH4EPO4i88HIql25ykBb0xyadPZL",
+    "isAccepted": false,
+    "isPending": false
+  },
+  {
+    "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+    "friendUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "isAccepted": false,
+    "isPending": true
+  },
+  {
+    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+    "friendUid": "gH4EPO4i88HIql25ykBb0xyadPZL",
+    "isAccepted": true,
+    "isPending": false
+  },
+  {
+    "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+    "friendUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+    "isAccepted": true,
+    "isPending": true
+  } ]
 }
