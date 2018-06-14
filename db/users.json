@@ -1,10 +1,10 @@
 {
-  "user" : [ {
-    "username": "nutshell",
-    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2"
-  },
-  {
-    "username": "nut",
-    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82"
-  }  ]
+    "u0" : {
+      "username": "nutshell",
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2"
+    },
+    "u1" :  {
+      "username": "nut",
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82"
+    }
 }
