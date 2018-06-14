@@ -8,6 +8,29 @@ const logOut = (e) => {
     });
 };
 
+const registerUniqueUser = (inputUser, inputEmail, inputPass) => {
+  console.log('input user, temp, ', inputUser);
+  firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPass)
+    .then(user => {
+      console.log('.then is here, ', user);
+      dashBoardView();
+    })
+    .catch((error) => {
+      console.error(error.message);
+    });
+};
+
+const registerButtonClicked = () => {
+  $('#register-btn').click(e => {
+    e.preventDefault();
+    const username = $('#register-username');
+    const email = $('#register-email').val();
+    const pass = $('#register-pass').val();
+    registerUniqueUser(username, email, pass);
+
+  });
+};
+
 const viewRegister = () => {
   $('#register-form').removeClass('hide');
   $('#signin-form').addClass('hide');
@@ -31,6 +54,7 @@ const authEvents = () => {
   $('#jumbo-register, #register-link').click(viewRegister);
   $('#logOutButt').click(logOut);
   logInNutShell();
+  registerButtonClicked();
 };
 
 const logInNutShell = () => {
