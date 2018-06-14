@@ -1,32 +1,32 @@
 {
-  "task" : [ {
-    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-    "task": "Take out garbage",
-    "isCompleted": true
-  },
-  {
-    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
-    "task": "Change engine oil",
-    "isCompleted": false
-  },
-  {
-    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-    "task": "Feed kitty cat",
-    "isCompleted": false
-  },
-  {
-    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
-    "task": "Walk the dog",
-    "isCompleted": true
-  },
-  {
-    "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-    "task": "Go for a run",
-    "isCompleted": false
-  },
-  {
-    "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
-    "task": "Sleep",
-    "isCompleted": false
-  }  ]
+    "t0" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    },
+    "t1":  {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Change engine oil",
+      "isCompleted": false
+    },
+    "t2" : {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Feed kitty cat",
+      "isCompleted": false
+    },
+    "t3" : {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Walk the dog",
+      "isCompleted": true
+    },
+    "t4" :  {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "task": "Go for a run",
+      "isCompleted": false
+    },
+    "t5" :  {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Sleep",
+      "isCompleted": false
+    }
 }
