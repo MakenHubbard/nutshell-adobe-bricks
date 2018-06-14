@@ -1,40 +1,40 @@
 {
   "events" : {
-    "event00" : {
+    "event" : [ {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
       "event": "Bonfire at the beach",
       "startDate": 1528763298535,
       "location": "Ocean Beach"
     },
-    "event01" : {
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "event": "Generic 80s Cover Band",
+      "startDate": 1528763298535,
+      "location": "The Bar"
+    },
+    {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
       "event": "Day drinking",
       "startDate": 1528763298535,
-      "location": "Anywhere"
+      "location": "Nashville"
     },
-    "event02" : {
-      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "event": "Hiking",
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "event": "Boat Show",
       "startDate": 1528763298535,
-      "location": "The mall"
+      "location": "Center Hill Lake"
     },
-    "event03" : {
+    {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "event": "Night drinking",
+      "event": "Riding ugly horses",
       "startDate": 1528763298535,
-      "location": "Alone in the dark"
+      "location": "Doesn't matter"
     },
-    "event04" : {
-      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "event": "Bocee Ball",
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "event": "Study Group",
       "startDate": 1528763298535,
-      "location": "Lawn"
-    },
-    "event05" : {
-      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "event": "Generic 80s Cover Bands",
-      "startDate": 1528763298535,
-      "location": "The bar"
-    }
+      "location": "erday'"
+    }  ]
   }
 }

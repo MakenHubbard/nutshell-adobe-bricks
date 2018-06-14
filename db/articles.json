@@ -1,14 +1,40 @@
 {
-  "tasks" : {
-    "task" : [ {
+  "articles" : {
+    "article" : [ {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "Take out garbage",
-      "isCompleted": true
+      "url": "https://international.la-croix.com/news/building-lives-of-brick-makers/7817",
+      "title": "Building lives of brick makers",
+      "synopsis": "Brick makers work hard"
+    },
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Another article title",
+      "synopsis": "Amazing article that should be read in greater detail for a long time."
     },
     {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "Change engine oil",
-      "isCompleted": false
+      "url": "https://international.la-croix.com/news/building-lives-of-brick-makers/7817",
+      "title": "Building lives of brick makers",
+      "synopsis": "Brick makers work hard"
+    },
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Great new article here",
+      "synopsis": "Amazing article that should be read in greater detail for a long time more words here"
+    },
+    {
+      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
+      "url": "https://international.la-croix.com/news/building-lives-of-brick-makers/7817",
+      "title": "Building lives of brick makers in slave like conditions",
+      "synopsis": "Brick kilns are hot"
+    },
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Great read",
+      "synopsis": "This is a really neat article about nothing in particular"
     }  ]
   }
 }
