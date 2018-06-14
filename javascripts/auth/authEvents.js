@@ -1,4 +1,5 @@
 const firebaseApi = require('../firebase/firebaseApi');
+const {showMessages,} = require('../tasks/getTasks');
 
 let inputUsername = '';
 let inputEmail = '';
@@ -113,6 +114,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  showMessages();
 };
 
 module.exports = {
