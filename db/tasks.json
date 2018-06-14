@@ -1,30 +1,34 @@
 {
   "tasks" : {
-    "task00" : {
+    "task" : [ {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
       "task": "Take out garbage",
       "isCompleted": true
     },
-    "task01" : {
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Change engine oil",
+      "isCompleted": false
+    },
+    {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "Change the engine oil",
+      "task": "Feed kitty cat",
+      "isCompleted": false
+    },
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Walk the dog",
       "isCompleted": true
     },
-    "task02" : {
+    {
       "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "Balance budget",
+      "task": "Go for a run",
       "isCompleted": false
     },
-    "task03" : {
-      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "Clean kitchen",
+    {
+      "userUid": "asRbydYGqaQl9VQkWTlcoFPtvI82",
+      "task": "Sleep",
       "isCompleted": false
-    },
-    "task04" : {
-      "userUid": "6HDzGqkCjyfGDpXUzXdYfhR2DLO2",
-      "task": "See friends",
-      "isCompleted": false
-    },
-
+    }  ]
   }
 }
