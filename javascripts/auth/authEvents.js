@@ -1,3 +1,5 @@
+const friends = require('../friends/core');
+
 const logOut = (e) => {
   e.preventDefault();
   firebase.auth().signOut()
@@ -51,6 +53,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  console.log(friends.updateFriends());
 };
 
 module.exports = {
