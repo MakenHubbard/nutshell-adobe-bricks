@@ -1,4 +1,5 @@
 const authEvents = require('./authEvents');
+const {setTaskUID,} = require('../tasks/taskCore');
 
 let uid = '';
 
@@ -7,6 +8,7 @@ const getUID = () => {
 };
 const setUID = (newUID) => {
   uid = newUID;
+  setTaskUID(newUID);
 };
 
 const checkLoginStatus = () => {

@@ -20,11 +20,17 @@ body {
   height: 32%;
   background-color: lightblue;
   margin-bottom: 2%;
-  overflow-y: scroll;
 }
 
 .left-module:last-of-type {
   margin-bottom: 0;
+}
+
+#tasks-view > .panel {
+  height: 100%;
+}
+#tasks-view {
+  padding: 0;
 }
 
 /* END LEFT SIDE MODULE STYLES */

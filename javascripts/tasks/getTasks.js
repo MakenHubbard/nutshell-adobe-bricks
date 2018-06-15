@@ -1,4 +1,8 @@
+// Gets task list from database and prints to dom
+// Michael Clark
+
 const {getConfig,} = require('../firebase/firebaseApi');
+const dom = require('./dom');
 
 const loadTasks = () => {
   const tasksList = [];
@@ -21,7 +25,7 @@ const loadTasks = () => {
 };
 const showMessages = () => {
   loadTasks().then(tasks => {
-    console.log(tasks);
+    dom.domBuilder(tasks);
   }).catch(err => {
     console.error('Error in showMessages', err);
   });
