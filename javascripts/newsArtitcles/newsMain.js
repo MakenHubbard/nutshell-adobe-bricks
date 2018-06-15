@@ -1,7 +1,9 @@
 const fire = require('./newsFire');
+const events =  require('./newsEvents');
 
 const initializarNews = () => {
-  fire();
+  fire.firebaseCRUD();
+  events();
 };
 
 module.exports = initializarNews;
