@@ -6,14 +6,11 @@ const printAllEventsToDom = (eventsDom, eventsId) => {
 };
 
 const buildAllEventsString = (inputEvents) => {
-
   let output = '';
-
   inputEvents.forEach((event, index) => {
     if (index % 3 === 0) {
       output += `<div class="row">`;
     }
-
     output += `
     <div class="panel panel-default col-sm-4" id="${event.startDate}">
       <div class="panel-body">
@@ -28,12 +25,10 @@ const buildAllEventsString = (inputEvents) => {
       </div>
     </div>
     `;
-
     if (index % 3 === 2) {
       output += `</div>`;
     }
   });
-
   printAllEventsToDom(output, '#events-view');
 };
 
