@@ -5,14 +5,16 @@ const data = require('./data');
 const {getTaskUID,} = require('./taskUID');
 
 const addTaskEvent = () => {
-  $(document).on('click', '#add-task', e => {
-    const newTask = {
-      task: $('#new-task').val(),
-      isCompleted: false,
-      userUid: getTaskUID(),
-    };
-    data.addNewTask(newTask);
-    $('#new-task').val('');
+  $(document).on('click keypress', e => {
+    if (($(document.activeElement).is('#new-task') && e.key === 'Enter') || $(e.target).is('#add-task')) {
+      const newTask = {
+        task: $('#new-task').val(),
+        isCompleted: false,
+        userUid: getTaskUID(),
+      };
+      data.addNewTask(newTask);
+      $('#new-task').val('');
+    }
   });
 };
 const updateTaskEvent = () => {
@@ -30,9 +32,21 @@ const updateTaskEvent = () => {
     data.updateTask(updatedTask, taskId);
   });
 };
+const deleteTaskEvent = () => {
+  $(document).on('click', '.delete-task', e => {
+    const taskToRemove = $(e.target).closest('.task');
+    const taskId = taskToRemove.data().id;
+    data.removeTask(taskId).then(r => {
+      taskToRemove.remove();
+    }).catch(err => {
+      console.error('Error in deleteTaskEvent', err);
+    });
+  });
+};
 const attachEvents = () => {
   addTaskEvent();
   updateTaskEvent();
+  deleteTaskEvent();
 };
 module.exports = {
   attachEvents,

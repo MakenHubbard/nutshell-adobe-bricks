@@ -45,6 +45,7 @@ body {
   position: absolute;
   right: 2em;
   top: 20%;
+  cursor: pointer;
 }
 .task-item {
   cursor: pointer;
