@@ -1,7 +1,9 @@
 
 // const { getAllMessages, } = require('../messages/messagesFirebaseApi');
 const {showMessages,} = require('../messages/messagesEvents');
+const friends = require('../friends/core');
 const firebaseApi = require('../firebase/firebaseApi');
+const tasks = require('../tasks/data');
 
 let inputUsername = '';
 let inputEmail = '';
@@ -117,6 +119,8 @@ const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
   showMessages();
+  tasks.initTasks();
+  friends.initializeFriends();
 };
 
 module.exports = {
