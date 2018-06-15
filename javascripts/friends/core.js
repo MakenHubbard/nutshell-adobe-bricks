@@ -220,8 +220,14 @@ const acceptFriend = (fUid) => {
     isPending: false,
   };
 
+  // checks to see whether we already have an outgoing request to the person we are accepting
+  // if so we will update it, if not we will create it
+  const hasOutgoingRequest = friendsStore.find(req => {
+    return req.userUid === currentUid && req.friendUid === fUid;
+  });
+
   // sends both requests to Firebase
-  Promise.all([fbFriends.addRequest(symmetryReq), fbFriends.updateRequest(reqToAccept.reqId, acceptedReq),])
+  Promise.all([fbFriends.updateRequest(reqToAccept.reqId, acceptedReq), hasOutgoingRequest ? fbFriends.updateRequest(hasOutgoingRequest.reqId, symmetryReq) : fbFriends.addRequest(symmetryReq),])
     .then(initializeFriendsData)
     .catch(err => {
       console.error(err);
@@ -244,7 +250,7 @@ const rejectFriend = (fUid) => {
     isPending: false,
   };
 
-  // sends both requests to Firebase
+  // sends the request to Firebase
   fbFriends.updateRequest(reqToReject.reqId, rejectedReq)
     .then(initializeFriendsData)
     .catch(err => {

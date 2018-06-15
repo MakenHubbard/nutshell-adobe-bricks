@@ -60,7 +60,14 @@ body {
 
 .tab-content {
   max-height: calc(100% - 42px);
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+/* removes some padding from friends list tabs on certain screen widths to prevent overflow */
+@media (min-width: 992px) and (max-width: 1300px) {
+  #friends-tabs > li > a {
+    padding: 10px 5px;
+  }
 }
 
 .delete-friend-button,
