@@ -2,7 +2,6 @@
 // Michael Clark
 
 const {getTaskUID,} = require('./taskUID');
-const events = require('./events');
 
 const domBuilder = (taskList) => {
   let domString = '';
@@ -23,7 +22,6 @@ const domBuilder = (taskList) => {
 };
 const writeTasks = (domString) => {
   $('#tasks').html(domString);
-  events.attachEvents();
 };
 module.exports = {
   domBuilder,

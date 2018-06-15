@@ -4,6 +4,26 @@
 const {getConfig,} = require('../firebase/firebaseApi');
 const dom = require('./dom');
 
+const putNewTask = (modTaskObj, taskId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${getConfig().databaseURL}/tasks/${taskId}.json`,
+      data: JSON.stringify(modTaskObj),
+    }).done(response => {
+      resolve(response);
+    }).fail(err => {
+      reject(err);
+    });
+  });
+};
+const updateTask = (modTaskObj, taskId) => {
+  putNewTask(modTaskObj, taskId).then(result => {
+    showTasks();
+  }).catch(err => {
+    console.error('Error updating task', err);
+  });
+};
 const postNewTask = (newTaskObj) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -58,5 +78,6 @@ const initTasks = () => {
 module.exports = {
   showTasks,
   addNewTask,
+  updateTask,
   initTasks,
 };
