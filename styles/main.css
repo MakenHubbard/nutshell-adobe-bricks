@@ -30,6 +30,7 @@ body {
 
 #tasks-view > .panel {
   height: 100%;
+  overflow: auto;
 }
 #tasks-view {
   padding: 0;
