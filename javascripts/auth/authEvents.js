@@ -116,7 +116,7 @@ const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
   tasks.showTasks();
-  friends.initializeFriends();
+  friends.initializeFriendsData();
 };
 
 module.exports = {
