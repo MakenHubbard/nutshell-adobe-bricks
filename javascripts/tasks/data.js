@@ -4,6 +4,25 @@
 const {getConfig,} = require('../firebase/firebaseApi');
 const dom = require('./dom');
 
+const deleteTask = (taskId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${getConfig().databaseURL}/tasks/${taskId}.json`,
+    }).done(response => {
+      resolve(response);
+    }).fail(err => {
+      reject(err);
+    });
+  });
+};
+const removeTask = (taskId) => {
+  return deleteTask(taskId).then(result => {
+    showTasks();
+  }).catch(err => {
+    console.error('Error deleting task');
+  });
+};
 const putNewTask = (modTaskObj, taskId) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -79,5 +98,6 @@ module.exports = {
   showTasks,
   addNewTask,
   updateTask,
+  removeTask,
   initTasks,
 };

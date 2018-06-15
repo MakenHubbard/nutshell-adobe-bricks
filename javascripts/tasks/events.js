@@ -30,9 +30,21 @@ const updateTaskEvent = () => {
     data.updateTask(updatedTask, taskId);
   });
 };
+const deleteTaskEvent = () => {
+  $(document).on('click', '.delete-task', e => {
+    const taskToRemove = $(e.target).closest('.task');
+    const taskId = taskToRemove.data().id;
+    data.removeTask(taskId).then(r => {
+      taskToRemove.remove();
+    }).catch(err => {
+      console.error('Error in deleteTaskEvent', err);
+    });
+  });
+};
 const attachEvents = () => {
   addTaskEvent();
   updateTaskEvent();
+  deleteTaskEvent();
 };
 module.exports = {
   attachEvents,
