@@ -1,9 +1,10 @@
 // Functionality for interacting with the friends list module
 // Author: John Achor
-
+const firebaseApi = require('../firebase/firebaseApi');
 const fbFriends = require('./fbFriends');
 
 let friendsStore = [];
+let displayNames = [];
 let currentUid = '';
 
 const setCurrentUid = (uid) => {
@@ -14,13 +15,13 @@ const setCurrentUid = (uid) => {
 const updateFriends = () => {
   fbFriends.retrieveFriends()
     .then(friendsData => {
-      friendsStore = Object.entries(friendsData).reduce((acc, kvp) => {
-        kvp[1].reqId = kvp[0];
-        acc.push(kvp[1]);
-        return acc;
-      }, []);
-      console.log(friendsStore);
-      console.log(getFriendUids());
+      friendsStore = Object.entries(friendsData)
+        // adds the firebase ID of each request onto the object and returns an array of all the request objects
+        .reduce((acc, kvp) => {
+          kvp[1].reqId = kvp[0];
+          acc.push(kvp[1]);
+          return acc;
+        }, []);
     })
     .catch(err => console.error(err));
 };
@@ -35,8 +36,27 @@ const getFriendUids = () => {
   }, []);
 };
 
+const updateDisplayNames = () => {
+  firebaseApi.getAllUsernames()
+    .then(nameData => {
+      console.log(nameData);
+      displayNames = Object.values(nameData).reduce((acc, value) => {
+        acc[value.userUid] = value.username;
+        return acc;
+      }, {});
+      console.log(displayNames);
+    })
+    .catch(err => console.error(err));
+};
+
+const getDisplayNames = () => {
+  return displayNames;
+};
+
 module.exports = {
   updateFriends,
   getFriendUids,
   setCurrentUid,
+  updateDisplayNames,
+  getDisplayNames,
 };

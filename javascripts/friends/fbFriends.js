@@ -8,6 +8,15 @@ const retrieveFriends = () => {
   });
 };
 
+const retrieveUsers = () => {
+  return new Promise((resolve, reject) => {
+    $.ajax(`${mainFB.getConfig().databaseURL}/users.json`)
+      .done(usersData => resolve(usersData))
+      .fail(err => reject(err));
+  });
+};
+
 module.exports = {
   retrieveFriends,
+  retrieveUsers,
 };
