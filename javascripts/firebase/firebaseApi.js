@@ -4,6 +4,7 @@
 let config = {};
 
 const getConfig = () => {
+  console.log('this is the config', config);
   return config;
 };
 const setConfig = (newConfig) => {

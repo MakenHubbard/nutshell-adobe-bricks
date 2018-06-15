@@ -1,4 +1,5 @@
 const firebaseApi = require('../firebase/firebaseApi');
+const eventsData = require('../events/eventsData');
 
 let inputUsername = '';
 let inputEmail = '';
@@ -93,6 +94,7 @@ const authEvents = () => {
   $('#logOutButt').click(logOut);
   logInNutShell();
   registerButtonClicked();
+  eventsData.requestEventsFromFirebase();
 };
 
 const logInNutShell = () => {
