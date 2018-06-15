@@ -1,13 +1,17 @@
-const {getTaskUID,} = require('./taskCore');
+const {getTaskUID,} = require('./taskUID');
 
 const domBuilder = (taskList) => {
   let domString = '';
   taskList.forEach(task => {
     if (task.userUid === getTaskUID()) {
       domString +=
-      `<div class="col-md-3 task" id="${task.id}">
-        <span class="task-item">${task.task}</span>
-        <span class="glyphicon glyphicon-trash"></span>
+      `<div class="col-lg-3 col-md-4 task" id="${task.id}">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            ${task.isComplete ? `<del><span class="task-item">${task.task}</span></del>` : `<span class="task-item">${task.task}</span>`}
+            <span class="glyphicon glyphicon-trash delete-task"></span>
+          </div>
+        </div>
       </div>`;
     }
   });
