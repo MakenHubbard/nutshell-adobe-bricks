@@ -61,8 +61,12 @@ body {
 
 
 /* end of navbar styles */
-.panel {
-  width: 20%;
-}
+
 /* #events-view styles */
+.panel {
+
+}
+.event-name {
+  border-bottom: 1px solid black;
+}
 /*      END #events-view styles */
