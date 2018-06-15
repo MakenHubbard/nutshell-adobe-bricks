@@ -1,4 +1,5 @@
 const authEvents = require('./authEvents');
+const tasks = require('../tasks/taskUID');
 const friends = require('../friends/core');
 
 let uid = '';
@@ -8,6 +9,7 @@ const getUID = () => {
 };
 const setUID = (newUID) => {
   uid = newUID;
+  tasks.setTaskUID(newUID);
   friends.setCurrentUid(newUID);
 };
 

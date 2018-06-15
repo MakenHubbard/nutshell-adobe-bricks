@@ -1,5 +1,6 @@
 const friends = require('../friends/core');
 const firebaseApi = require('../firebase/firebaseApi');
+const tasks = require('../tasks/getTasks');
 
 let inputUsername = '';
 let inputEmail = '';
@@ -114,6 +115,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  tasks.showTasks();
   friends.initializeFriendsData();
 };
 

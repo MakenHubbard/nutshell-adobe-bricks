@@ -22,12 +22,35 @@ body {
   height: 32%;
   background-color: lightblue;
   margin-bottom: 2%;
-  overflow-y: scroll;
 }
 
 .left-module:last-of-type {
   margin-bottom: 0;
 }
+
+#tasks-view > .panel {
+  height: 100%;
+}
+#tasks-view {
+  padding: 0;
+}
+.task .panel-body {
+  padding: .5em;
+}
+.delete-task {
+  position: absolute;
+  right: 2em;
+  top: 20%;
+}
+#add-task {
+  position: absolute;
+  right: 2em;
+  top: .825em;
+}
+.task-item {
+  cursor: pointer;
+}
+
 
 /* END LEFT SIDE MODULE STYLES */
 
