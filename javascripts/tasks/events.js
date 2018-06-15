@@ -5,14 +5,16 @@ const data = require('./data');
 const {getTaskUID,} = require('./taskUID');
 
 const addTaskEvent = () => {
-  $(document).on('click', '#add-task', e => {
-    const newTask = {
-      task: $('#new-task').val(),
-      isCompleted: false,
-      userUid: getTaskUID(),
-    };
-    data.addNewTask(newTask);
-    $('#new-task').val('');
+  $(document).on('click keypress', e => {
+    if (($(document.activeElement).is('#new-task') && e.key === 'Enter') || $(e.target).is('#add-task')) {
+      const newTask = {
+        task: $('#new-task').val(),
+        isCompleted: false,
+        userUid: getTaskUID(),
+      };
+      data.addNewTask(newTask);
+      $('#new-task').val('');
+    }
   });
 };
 const updateTaskEvent = () => {
