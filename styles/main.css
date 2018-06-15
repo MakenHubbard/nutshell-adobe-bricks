@@ -64,7 +64,7 @@ body {
   height: 33%;
   background-color: white;
   margin-bottom: 2%;
-  overflow-y: scroll;
+  padding: 0;
 }
 
 #messages-view {
@@ -76,10 +76,31 @@ body {
 }
 
 #friends-tabs {
-  width: 100%;
   background-color: #FFD300;
   color: white;
   margin: 0;
+}
+
+.tab-content {
+  max-height: calc(100% - 42px);
+  overflow-y: auto;
+}
+
+/* removes some padding from friends list tabs on certain screen widths to prevent overflow */
+@media (min-width: 992px) and (max-width: 1300px) {
+  #friends-tabs > li > a {
+    padding: 10px 5px;
+  }
+}
+
+.delete-friend-button,
+.request-friend-button,
+.accept-friend-button,
+.reject-friend-button,
+.cancel-friend-button,
+.clear-rejected-friend-button {
+  float: right;
+  margin-top: -7px;
 }
 
 /* END RIGHT SIDE MODULE STYLES */
