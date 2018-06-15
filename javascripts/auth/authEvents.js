@@ -1,3 +1,4 @@
+const friends = require('../friends/core');
 const firebaseApi = require('../firebase/firebaseApi');
 
 let inputUsername = '';
@@ -113,6 +114,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  friends.initializeFriends();
 };
 
 module.exports = {

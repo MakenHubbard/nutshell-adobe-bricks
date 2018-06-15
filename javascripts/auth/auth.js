@@ -1,4 +1,5 @@
 const authEvents = require('./authEvents');
+const friends = require('../friends/core');
 
 let uid = '';
 
@@ -7,6 +8,7 @@ const getUID = () => {
 };
 const setUID = (newUID) => {
   uid = newUID;
+  friends.setCurrentUid(newUID);
 };
 
 const checkLoginStatus = () => {

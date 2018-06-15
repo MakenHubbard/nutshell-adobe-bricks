@@ -1,5 +1,7 @@
 body {
   background-color: #aaffaa;
+  background-image: url('/images/bricks.jpg');
+  background-size: cover;
 }
 
 #authentication {
@@ -7,7 +9,7 @@ body {
 }
 
 #main-view {
-  height: 95vh;
+  height: 90vh;
   /* padding-top: 60px; */
 }
 /* LEFT SIDE MODULE STYLES */
@@ -37,7 +39,7 @@ body {
 
 #friends-view {
   height: 33%;
-  background-color: red;
+  background-color: white;
   margin-bottom: 2%;
   overflow-y: scroll;
 }
@@ -48,6 +50,13 @@ body {
   margin-top: 2%;
   margin-bottom: 0;
   overflow-y: scroll;
+}
+
+#friends-tabs {
+  width: 100%;
+  background-color: #FFD300;
+  color: white;
+  margin: 0;
 }
 
 /* END RIGHT SIDE MODULE STYLES */

@@ -112,11 +112,35 @@
     </div>
     <div class="col-xs-12 col-md-4" id="right-side">
       <div class="col-xs-12 right-module" id="friends-view">
-        <h1>Friends</h1>
+        <ul class="nav nav-tabs nav-justified" id="friends-tabs">
+          <li class="active">
+            <a class="friends-tab" href="#">
+              Friends
+            </a>
+          </li>
+          <li>
+            <a class="pending-tab" href="#">
+              Pending
+              <span class="badge">0</span>
+            </a>
+          </li>
+          <li>
+            <a class="outgoing-tab" href="#">
+              Outgoing
+            </a>
+          </li>
+          <li>
+            <a class="add-friends-tab" href="#">
+              Add
+            </a>
+          </li>
+        </ul>
+        <div class="friends-panel" id="current-friends"></div>
+        <div class="friends-panel hide" id="pending-friends"></div>
+        <div class="friends-panel hide" id="sent-friends"></div>
+        <div class="friends-panel hide" id="find-friends"></div>
       </div>
-      <div class="col-xs-12 right-module" id="messages-view">
-        <h1>Messages</h1>
-      </div>
+      <div class="col-xs-12 right-module" id="messages-view"><h1>Messages</h1></div>
     </div>
   </div>
 
