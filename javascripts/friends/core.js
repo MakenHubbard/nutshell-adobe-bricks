@@ -12,18 +12,14 @@ const setCurrentUid = (uid) => {
 };
 
 // Refreshes the friendsStore object with the most current Firebase data
-const updateFriends = () => {
-  fbFriends.retrieveFriends()
-    .then(friendsData => {
-      friendsStore = Object.entries(friendsData)
-        // adds the firebase ID of each request onto the object and returns an array of all the request objects
-        .reduce((acc, kvp) => {
-          kvp[1].reqId = kvp[0];
-          acc.push(kvp[1]);
-          return acc;
-        }, []);
-    })
-    .catch(err => console.error(err));
+const updateFriends = (friendsData) => {
+  friendsStore = Object.entries(friendsData)
+    // adds the firebase ID of each request onto the object and returns an array of all the request objects
+    .reduce((acc, kvp) => {
+      kvp[1].reqId = kvp[0];
+      acc.push(kvp[1]);
+      return acc;
+    }, []);
 };
 
 // Returns an array of strings representing the UIDs of the active user's accepted friends
@@ -36,27 +32,32 @@ const getFriendUids = () => {
   }, []);
 };
 
-const updateDisplayNames = () => {
-  firebaseApi.getAllUsernames()
-    .then(nameData => {
-      console.log(nameData);
-      displayNames = Object.values(nameData).reduce((acc, value) => {
-        acc[value.userUid] = value.username;
-        return acc;
-      }, {});
-      console.log(displayNames);
-    })
-    .catch(err => console.error(err));
+// gets all users from Firebase and stores an object with uid:username KV pairs
+const updateDisplayNames = (nameData) => {
+  displayNames = Object.values(nameData).reduce((acc, value) => {
+    acc[value.userUid] = value.username;
+    return acc;
+  }, {});
+  console.log(displayNames);
 };
 
 const getDisplayNames = () => {
   return displayNames;
 };
 
+const initializeFriends = () => {
+  Promise.all([fbFriends.retrieveFriends(), firebaseApi.getAllUsernames(),])
+    .then((bothData) => {
+      updateDisplayNames(bothData[1]);
+      updateFriends(bothData[0]);
+      console.log(friendsStore, displayNames);
+    })
+    .catch(err => console.error(err));
+};
+
 module.exports = {
-  updateFriends,
   getFriendUids,
   setCurrentUid,
-  updateDisplayNames,
   getDisplayNames,
+  initializeFriends,
 };

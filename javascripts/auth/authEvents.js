@@ -114,8 +114,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
-  friends.updateFriends();
-  friends.updateDisplayNames();
+  friends.initializeFriends();
 };
 
 module.exports = {
