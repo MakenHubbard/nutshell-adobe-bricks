@@ -1,3 +1,6 @@
+// DOM String builder
+// Michael Clark
+
 const {getTaskUID,} = require('./taskUID');
 
 const domBuilder = (taskList) => {
