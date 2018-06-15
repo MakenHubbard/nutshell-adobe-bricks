@@ -117,7 +117,6 @@ const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
   showMessages();
-  console.log(showMessages());
 };
 
 module.exports = {

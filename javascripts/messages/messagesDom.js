@@ -3,10 +3,9 @@
 const { getAllUsernames, } = require('../firebase/firebaseApi');
 
 const convertUserIdToUserName = (uid, userArray) => {
-  const finalUser = userArray.find((user) => {
-    user.userUid === uid;
-  });
-  return finalUser;
+  return userArray.find((user) => {
+    return user.userUid === uid;
+  }).username;
 };
 
 const buildMessagesDomString = (allMessagesArray) => {
