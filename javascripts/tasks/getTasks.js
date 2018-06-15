@@ -23,7 +23,7 @@ const loadTasks = () => {
     });
   });
 };
-const showMessages = () => {
+const showTasks = () => {
   loadTasks().then(tasks => {
     dom.domBuilder(tasks);
   }).catch(err => {
@@ -32,5 +32,5 @@ const showMessages = () => {
 };
 
 module.exports = {
-  showMessages,
+  showTasks,
 };
