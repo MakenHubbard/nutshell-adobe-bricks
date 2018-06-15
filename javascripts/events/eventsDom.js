@@ -19,7 +19,6 @@ const buildAllEventsString = (inputEvents) => {
         <p class="event-date">${event.startDate}</p>
       </div>
       <div class="panel-footer text-center">
-        <span class="glyphicon glyphicon-plus" title="Add New Event" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>
       </div>
