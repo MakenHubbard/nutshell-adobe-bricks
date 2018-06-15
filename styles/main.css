@@ -64,7 +64,8 @@ body {
 .request-friend-button,
 .accept-friend-button,
 .reject-friend-button,
-.cancel-friend-button {
+.cancel-friend-button,
+.clear-rejected-friend-button {
   float: right;
   margin-top: -7px;
 }

@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button  id="signin-btn" class="btn btn-default">Sign in</button>
+            <button id="signin-btn" class="btn btn-default">Sign in</button>
           </div>
         </div>
       </form>
@@ -80,25 +80,26 @@
   </div>
 
   <div class="container-fluid hide" id="main-view">
-      <nav id="nav-bar-area" class="navbar navbar-default">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">Nutshell of Adobe Bricks</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <form class="navbar-form navbar-right">
-                <button id="logOutButt" type="submit" class="btn btn-info">Log Out</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+    <nav id="nav-bar-area" class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Nutshell of Adobe Bricks</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="navbar-form navbar-right">
+            <button id="logOutButt" type="submit" class="btn btn-info">Log Out</button>
+          </form>
+        </div>
+      </div>
+    </nav>
     <div class="col-xs-12 col-md-8" id="left-side">
       <div class="col-xs-12 left-module" id="articles-view">
         <h1>Articles</h1>
@@ -112,51 +113,65 @@
     </div>
     <div class="col-xs-12 col-md-4" id="right-side">
       <div class="col-xs-12 right-module" id="friends-view">
-        <ul class="nav nav-tabs nav-justified" id="friends-tabs">
+        <ul class="nav nav-tabs" id="friends-tabs">
+          <li>
+            <a class="friends-tab" id="find-friends-tab" href="#find-friends-view" data-toggle="tab">
+              Find
+            </a>
+          </li>
           <li class="active">
-            <a class="friends-tab" id="current-friends-tab" href="#">
+            <a class="friends-tab" id="current-friends-tab" href="#current-friends-view" data-toggle="tab">
               Friends
             </a>
           </li>
           <li>
-            <a class="friends-tab" id="pending-friends-tab" href="#">
+            <a class="friends-tab" id="pending-friends-tab" href="#pending-friends-view" data-toggle="tab">
               Pending
               <span class="badge" id="pending-friends-badge"></span>
             </a>
           </li>
           <li>
-            <a class="friends-tab" id="sent-friends-tab" href="#">
+            <a class="friends-tab" id="sent-friends-tab" href="#sent-friends-view" data-toggle="tab">
               Sent
             </a>
           </li>
           <li>
-            <a class="friends-tab" id="find-friends-tab" href="#">
-              Find
+            <a class="friends-tab" id="rejected-friends-tab" href="#rejected-friends-view" data-toggle="tab">
+              Rejected
             </a>
           </li>
         </ul>
-        <div class="friends-panel" id="current-friends-view">
-          <ul class="list-group" id="current-friends-list">
-            
-          </ul>
-        </div>
-        <div class="friends-panel hide" id="pending-friends-view">
-          <ul class="list-group" id="pending-friends-list">
-          
-          </ul>
-        </div>
-        <div class="friends-panel hide" id="sent-friends-view">
-          <ul class="list-group" id="sent-friends-list">
-          
-          </ul>
-        </div>
-        <div class="friends-panel hide" id="find-friends-view">
-          <ul class="list-group" id="available-friends-list">
-          
-          </ul>
+        <div class="tab-content">
+          <div class="friends-panel tab-pane fade active" id="current-friends-view">
+            <ul class="list-group" id="current-friends-list">
+
+            </ul>
+          </div>
+          <div class="friends-panel tab-pane fade" id="pending-friends-view">
+            <ul class="list-group" id="pending-friends-list">
+
+            </ul>
+          </div>
+          <div class="friends-panel tab-pane fade" id="sent-friends-view">
+            <ul class="list-group" id="sent-friends-list">
+
+            </ul>
+          </div>
+          <div class="friends-panel tab-pane fade" id="find-friends-view">
+            <ul class="list-group" id="available-friends-list">
+
+            </ul>
+          </div>
+          <div class="friends-panel tab-pane fade" id="rejected-friends-view">
+            <ul class="list-group" id="rejected-friends-list">
+
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="col-xs-12 right-module" id="messages-view"><h1>Messages</h1></div>
+      <div class="col-xs-12 right-module" id="messages-view">
+        <h1>Messages</h1>
+      </div>
     </div>
   </div>
 

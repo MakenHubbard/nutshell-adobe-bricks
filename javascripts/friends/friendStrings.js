@@ -31,9 +31,18 @@ const createSentFriendListItem = (friendUid, friendDisplayName) => {
   </li>`;
 };
 
+const createRejectedFriendListItem = (friendUid, friendDisplayName) => {
+  return `
+  <li class="list-group-item rejected-friend-item">
+    ${friendDisplayName}
+    <button class="btn btn-warning clear-rejected-friend-button" data-friend-uid="${friendUid}">Clear</button>
+  </li>`;
+};
+
 module.exports = {
   createCurrentFriendListItem,
   createAvailableFriendListItem,
   createPendingFriendListItem,
   createSentFriendListItem,
+  createRejectedFriendListItem,
 };
