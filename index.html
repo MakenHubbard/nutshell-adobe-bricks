@@ -114,31 +114,41 @@
       <div class="col-xs-12 right-module" id="friends-view">
         <ul class="nav nav-tabs nav-justified" id="friends-tabs">
           <li class="active">
-            <a class="friends-tab" href="#">
+            <a class="friends-tab" id="current-friends-tab" href="#">
               Friends
             </a>
           </li>
           <li>
-            <a class="pending-tab" href="#">
+            <a class="friends-tab" id="pending-friends-tab" href="#">
               Pending
-              <span class="badge">0</span>
+              <span class="badge" id="pending-friends-badge"></span>
             </a>
           </li>
           <li>
-            <a class="outgoing-tab" href="#">
-              Outgoing
+            <a class="friends-tab" id="sent-friends-tab" href="#">
+              Sent
             </a>
           </li>
           <li>
-            <a class="add-friends-tab" href="#">
-              Add
+            <a class="friends-tab" id="find-friends-tab" href="#">
+              Find
             </a>
           </li>
         </ul>
-        <div class="friends-panel" id="current-friends"></div>
-        <div class="friends-panel hide" id="pending-friends"></div>
-        <div class="friends-panel hide" id="sent-friends"></div>
-        <div class="friends-panel hide" id="find-friends"></div>
+        <div class="friends-panel" id="current-friends-view">
+          <ul class="list-group" id="current-friends-list">
+            
+          </ul>
+        </div>
+        <div class="friends-panel hide" id="pending-friends-view">
+          Pending Friends
+        </div>
+        <div class="friends-panel hide" id="sent-friends-view">
+          Sent Requests
+        </div>
+        <div class="friends-panel hide" id="find-friends-view">
+          Find Friends
+        </div>
       </div>
       <div class="col-xs-12 right-module" id="messages-view"><h1>Messages</h1></div>
     </div>

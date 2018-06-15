@@ -1,10 +1,10 @@
 // Functionality for interacting with the friends list module
 // Author: John Achor
-const firebaseApi = require('../firebase/firebaseApi');
 const fbFriends = require('./fbFriends');
+const friendStrings = require('./friendStrings');
 
 let friendsStore = [];
-let displayNames = [];
+let users = {};
 let currentUid = '';
 
 const setCurrentUid = (uid) => {
@@ -34,28 +34,84 @@ const getFriendUids = () => {
 
 // gets all users from Firebase and stores an object with uid:username KV pairs
 const updateDisplayNames = (nameData) => {
-  displayNames = Object.values(nameData).reduce((acc, value) => {
+  users = Object.values(nameData).reduce((acc, value) => {
     acc[value.userUid] = value.username;
     return acc;
   }, {});
 };
 
-const getDisplayNames = () => {
-  return displayNames;
+// insert uid, receive display name!
+const getDisplayName = (uid) => {
+  return users[uid];
 };
 
-const initializeFriends = () => {
-  Promise.all([fbFriends.retrieveFriends(), firebaseApi.getAllUsernames(),])
+// retrieves friends and users collections from firebase and stores them with internal data structure
+// then updates UI
+const initializeFriendsData = () => {
+  fbFriends.retrieveBoth()
     .then((bothData) => {
       updateDisplayNames(bothData[1]);
       updateFriends(bothData[0]);
+      populateViews();
     })
+    .catch(err => console.error(err));
+};
+
+// checks whether a friend request already exists between current user and target friend
+// const checkIfRequested = (friendUid) => {
+//   return friendsStore.find(friendReq => {
+//     if (friendReq.userUid === currentUid && friendReq.friendUid === friendUid) {
+//       return true;
+//     } else if (friendReq.userUid === friendUid && friendReq.friendUid === currentUid) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   });
+// };
+
+// returns a list of users that do not have a friend request with the current user
+// const getAvailableUsers = () => {
+//   return Object.keys(users).filter(uid => {
+//     return !checkIfRequested(uid) && uid !== currentUid;
+//   });
+// };
+
+// returns the current user's incoming pending requests
+// const getPendingRequests = () => {
+//   return friendsStore.filter(friendReq => {
+//     return friendReq.friendUid === currentUid && friendReq.isPending;
+//   });
+// };
+
+// const getOutgoingRequests = () => {
+//   return friendsStore.filter(friendReq => {
+//     return friendReq.userUid === currentUid && friendReq.isPending;
+//   });
+// };
+
+const populateViews = () => {
+  $('#current-friends-list').html(getFriendUids().map(friendUid => {
+    return friendStrings.createCurrentFriendListItem(friendUid, getDisplayName(friendUid));
+  }));
+};
+
+const createFriendRequest = (fUid) => {
+  const requestObject = {
+    friendUid: fUid,
+    userUid: currentUid,
+    isAccepted: false,
+    isPending: true,
+  };
+  fbFriends.addRequest(requestObject)
+    .then(initializeFriendsData)
     .catch(err => console.error(err));
 };
 
 module.exports = {
   getFriendUids,
   setCurrentUid,
-  getDisplayNames,
-  initializeFriends,
+  getDisplayName,
+  initializeFriendsData,
+  createFriendRequest,
 };
