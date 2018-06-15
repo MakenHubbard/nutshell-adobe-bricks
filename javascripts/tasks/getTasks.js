@@ -27,7 +27,7 @@ const showTasks = () => {
   loadTasks().then(tasks => {
     dom.domBuilder(tasks);
   }).catch(err => {
-    console.error('Error in showMessages', err);
+    console.error('Error in showTasks', err);
   });
 };
 
