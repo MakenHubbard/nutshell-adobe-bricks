@@ -38,7 +38,6 @@ const updateDisplayNames = (nameData) => {
     acc[value.userUid] = value.username;
     return acc;
   }, {});
-  console.log(displayNames);
 };
 
 const getDisplayNames = () => {
@@ -50,7 +49,6 @@ const initializeFriends = () => {
     .then((bothData) => {
       updateDisplayNames(bothData[1]);
       updateFriends(bothData[0]);
-      console.log(friendsStore, displayNames);
     })
     .catch(err => console.error(err));
 };
