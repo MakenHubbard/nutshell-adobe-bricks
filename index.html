@@ -106,9 +106,19 @@
       </div>
       <div class="col-xs-12 left-module" id="tasks-view">
         <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Tasks</h3>
-            <span class="glyphicon glyphicon-plus" id="add-task"></span>
+          <div class="panel-heading clearfix">
+            <div class="col-xs-6">
+              <h4>Tasks</h4>
+            </div>
+            <div class="col-xs-6">
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" id="new-task" placeholder="Add new task..." aria-describedby="add-task">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" id="add-task"><span class="glyphicon glyphicon-plus"></span></button>
+                </span>
+              </div>
+            </div>
+            <!-- <span class="glyphicon glyphicon-plus" id="add-task"></span> -->
           </div>
           <div class="panel-body" id="tasks">
           </div>

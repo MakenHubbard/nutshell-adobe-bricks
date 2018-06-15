@@ -30,9 +30,13 @@ body {
 
 #tasks-view > .panel {
   height: 100%;
+  overflow: auto;
 }
 #tasks-view {
   padding: 0;
+}
+#tasks-view .panel-heading h4 {
+  margin: 5px 0;
 }
 .task .panel-body {
   padding: .5em;
@@ -42,14 +46,10 @@ body {
   right: 2em;
   top: 20%;
 }
-#add-task {
-  position: absolute;
-  right: 2em;
-  top: .825em;
-}
 .task-item {
   cursor: pointer;
 }
+
 
 
 /* END LEFT SIDE MODULE STYLES */
