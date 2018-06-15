@@ -60,7 +60,11 @@ body {
   margin: 0;
 }
 
-.delete-friend-button {
+.delete-friend-button,
+.request-friend-button,
+.accept-friend-button,
+.reject-friend-button,
+.cancel-friend-button {
   float: right;
   margin-top: -7px;
 }

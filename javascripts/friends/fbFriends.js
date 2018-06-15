@@ -44,10 +44,22 @@ const updateRequest = (requestId, requestObject) => {
   });
 };
 
+const deleteRequest = (requestId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${mainFB.getConfig().databaseURL}/friends/${requestId}.json}`,
+    })
+      .fail(err => reject(err))
+      .done(() => resolve());
+  });
+};
+
 module.exports = {
   retrieveFriends,
   retrieveUsers,
   retrieveBoth,
   addRequest,
   updateRequest,
+  deleteRequest,
 };
