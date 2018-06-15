@@ -8,7 +8,7 @@ const domBuilder = (taskList) => {
       `<div class="col-lg-3 col-md-4 task" id="${task.id}">
         <div class="panel panel-default">
           <div class="panel-body">
-            ${task.isComplete ? `<del><span class="task-item">${task.task}</span></del>` : `<span class="task-item">${task.task}</span>`}
+            ${task.isCompleted ? `<del><span class="task-item">${task.task}</span></del>` : `<span class="task-item">${task.task}</span>`}
             <span class="glyphicon glyphicon-trash delete-task"></span>
           </div>
         </div>
