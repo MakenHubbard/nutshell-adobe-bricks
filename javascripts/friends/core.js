@@ -122,10 +122,20 @@ const createFriendRequest = (fUid) => {
     .catch(err => console.error(err));
 };
 
+const cancelSentRequest = (fUid) => {
+  const requestToDelete = friendsStore.find(req => {
+    return req.userUid === currentUid && req.friendUid === fUid && req.isPending;
+  });
+  fbFriends.deleteRequest(requestToDelete.reqId)
+    .then(initializeFriendsData)
+    .catch(err => console.error(err));
+};
+
 module.exports = {
   getFriendUids,
   setCurrentUid,
   getDisplayName,
   initializeFriendsData,
   createFriendRequest,
+  cancelSentRequest,
 };

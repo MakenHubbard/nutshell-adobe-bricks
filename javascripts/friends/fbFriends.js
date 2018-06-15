@@ -25,7 +25,7 @@ const addRequest = (requestObject) => {
     $.ajax({
       method: 'POST',
       data: JSON.stringify(requestObject),
-      url: `${mainFB.getConfig().databaseURL}/friends.json}`,
+      url: `${mainFB.getConfig().databaseURL}/friends.json`,
     })
       .fail(err => reject(err))
       .done(() => resolve());
@@ -37,7 +37,7 @@ const updateRequest = (requestId, requestObject) => {
     $.ajax({
       method: 'PUT',
       data: JSON.stringify(requestObject),
-      url: `${mainFB.getConfig().databaseURL}/friends/${requestId}.json}`,
+      url: `${mainFB.getConfig().databaseURL}/friends/${requestId}.json`,
     })
       .fail(err => reject(err))
       .done(() => resolve());
@@ -48,7 +48,7 @@ const deleteRequest = (requestId) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'DELETE',
-      url: `${mainFB.getConfig().databaseURL}/friends/${requestId}.json}`,
+      url: `${mainFB.getConfig().databaseURL}/friends/${requestId}.json`,
     })
       .fail(err => reject(err))
       .done(() => resolve());

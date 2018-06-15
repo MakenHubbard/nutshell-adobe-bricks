@@ -1,4 +1,4 @@
-// const friendsCore = require('./core');
+const friendsCore = require('./core');
 
 const swapTab = () => {
   $('.friends-tab').on('click', event => {
@@ -11,6 +11,20 @@ const swapTab = () => {
 
 const initFriendEvents = () => {
   swapTab();
+  requestFriendEvent();
+  cancelRequestEvent();
+};
+
+const requestFriendEvent = () => {
+  $(document).on('click', '.request-friend-button', e => {
+    friendsCore.createFriendRequest($(e.target).data('friendUid'));
+  });
+};
+
+const cancelRequestEvent = () => {
+  $(document).on('click', '.cancel-friend-button', e => {
+    friendsCore.cancelSentRequest($(e.target).data('friendUid'));
+  });
 };
 
 module.exports = {
