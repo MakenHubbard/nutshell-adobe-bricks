@@ -29,7 +29,7 @@ const buildAllEventsString = (inputEvents) => {
       output += `</div>`;
     }
   });
-  printAllEventsToDom(output, '#events-view');
+  printAllEventsToDom(output, '#events-view-data');
 };
 
 module.exports = {

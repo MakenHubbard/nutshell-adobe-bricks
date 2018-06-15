@@ -67,6 +67,22 @@ body {
 
 }
 .event-name {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgray;
+}
+
+.event-nav-container {
+  height: 100%;
+
+}
+
+.event-nav {
+  display: flex;
+  align-items: center;
+  height: 50%;
+}
+.event-nav-horizontal-center {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }
 /*      END #events-view styles */
