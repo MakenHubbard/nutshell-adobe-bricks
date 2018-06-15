@@ -52,12 +52,31 @@ body {
 
 /* END RIGHT SIDE MODULE STYLES */
 
-/* navbar styles */
+/* NAVBAR STYLES */
 
 .navbar {
   background-color: pink;
   color: purple;
 }
 
+/* END OF NAVBAR STYLES */
 
-/* end of navbar styles */
+/* MESSAGES STYLES */
+
+#WhoSaidIt {
+  padding-left: 10px;
+}
+
+#userMessage {
+  padding-left: 20px;
+}
+
+#editButt {
+  margin-left: 240px;
+}
+
+.pull-right {
+  float: right;
+}
+
+/* END OF MESSAGES STYLES */
