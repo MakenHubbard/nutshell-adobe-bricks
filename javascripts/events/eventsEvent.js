@@ -10,28 +10,22 @@ const bindEventsData = () => {
     eventsDataGateKP.requestEventGET();
   });
   $('#events-view').on('click', '#events-add-new', e => {
-    $('#events-header-view').addClass('hide');
+    $('#events-view-nav').addClass('hide');
+    $('#events-view-data').removeClass('hide');
     eventsDom.buildEventInputForm();
-
-    // requires input
   });
-  $('#events-view').on('click', '.CLASSNAME-HERE', e => {
-    eventsDataGateKP.requestEventDELETE();
-    // requires input
+
+  $('#events-view').on('click', '.glyphicon-trash', e => {
+    const eventToTrash = $(e.target).closest('.panel-event');
+    eventsDataGateKP.requestEventDELETE(eventToTrash[0].id);
   });
   $('#events-view').on('click', '.glyphicon-pencil', e => {
-    $('#events-view-nav').addClass('hide');
-    const objectToBeUpdated = {
-      'event': `${$(e.target).closest('.event-name').val()}`,
-      'location': `${$(e.target).closest('.event-location').val()}`,
-      'startDate': `${$(e.target).closest('.event-date').val()}`,
-      'userUid': ``,
-    };
+    $('#events-header-view').addClass('hide');
+    $('#events-view-data').removeClass('hide');
     eventsDom.buildUpdateEventInputForm();
 
-    eventsDataGateKP.requestEventPUT(objectToBeUpdated);
   });
-  //
+
   $('#events-view').on('click', '#event-btn-add-new', e => {
     $('#events-header-view').addClass('hide');
     const eventToAdd = {
@@ -56,7 +50,6 @@ const bindEventsData = () => {
       'userUid': ``,
     };
     eventsDataGateKP.requestEventPUT(eventToUpdate);
-    $('#events-header-view').removeClass('hide');
   });
 
   $('#events-view').on('click', '#event-btn-cancel-new', e => {

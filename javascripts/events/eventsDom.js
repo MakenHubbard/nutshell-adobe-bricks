@@ -62,11 +62,8 @@ const buildEventInputForm = () => {
 const buildAllEventsString = (inputEvents) => {
   let output = '';
   inputEvents.forEach((event, index) => {
-    if (index % 3 === 0) {
-      output += `<div class="row">`;
-    }
     output += `
-    <div class="panel panel-default panel-event col-sm-4" id="${event.startDate}">
+    <div class="panel panel-default panel-event col-sm-4" id="${event.id}">
       <div class="panel-body">
         <h4 class="event-name text-center">${event.event}</h4>
         <p class="event-location">${event.location}</p>
@@ -76,11 +73,7 @@ const buildAllEventsString = (inputEvents) => {
         <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
         <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>
       </div>
-    </div>
-    `;
-    if (index % 3 === 2) {
-      output += `</div>`;
-    }
+    </div>`;
   });
   printToDom(output, '#events-view-data');
 };
