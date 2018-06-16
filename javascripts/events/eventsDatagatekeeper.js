@@ -1,3 +1,6 @@
+// Andy Million
+// Call promises and call firebase in here
+
 const eventsDom = require('./eventsDom');
 // const {getConfig,} = require('../firebase/firebaseApi');
 
