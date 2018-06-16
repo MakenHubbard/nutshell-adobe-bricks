@@ -126,12 +126,10 @@ body {
   padding-left: 20px;
 }
 
-#editButt {
-  margin-left: 240px;
-}
-
-.pull-right {
-  float: right;
+#messageStatus {
+  font-size: 10px;
+  margin-top: 0;
+  margin-bottom: 3px;
 }
 
 #add-message {
@@ -142,6 +140,10 @@ body {
 
 #message-title {
   color: green;
+}
+
+#createdMessage {
+  align-self: center;
 }
 
 /* END OF MESSAGES STYLES */
