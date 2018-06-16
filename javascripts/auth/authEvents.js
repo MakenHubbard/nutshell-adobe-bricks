@@ -120,7 +120,7 @@ const dashBoardView = () => {
   $('#authentication').addClass('hide');
   showMessages();
   tasks.initTasks();
-  friends.initializeFriends();
+  friends.initializeFriendsData();
 };
 
 module.exports = {
