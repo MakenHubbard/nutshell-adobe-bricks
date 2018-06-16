@@ -32,7 +32,7 @@ const buildUpdateEventInputForm = objToUpdate => {
   printToDom(output, '#events-view-data');
 };
 
-const buildEventInputForm = () => {
+const buildEventInputForm = inputObj => {
   let output = '';
   output = `
   <div class="col-xs-2">
