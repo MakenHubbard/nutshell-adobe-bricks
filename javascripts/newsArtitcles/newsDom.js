@@ -14,6 +14,9 @@ const buildUpArticle = (articlesArray) => {
     string += `<div class="media-body">`;
     string +=  `<h4 class="media-heading">${articlesArray[i].title}</h4>`;
     string += `<p>${articlesArray[i].synopsis}</p>`;
+    string += `<p>`;
+    string += `<button type="button" class="btn btn-danger btn-xs deleteArticle" data-firebase-id=${articlesArray[i].id}> Delete Article</button>`;
+    string += `<p>`;
     string +=  `</div>`;
     string +=  `</div>`;
     string +=  `</div>`;
