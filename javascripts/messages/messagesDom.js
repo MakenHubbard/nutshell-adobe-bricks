@@ -4,7 +4,6 @@ const { getAllUsernames, } = require('../firebase/firebaseApi');
 
 const convertUserIdToUserName = (uid, userArray) => {
   return userArray.find((user) => {
-    console.log(userArray);
     return user.userUid === uid;
   }).username;
 };

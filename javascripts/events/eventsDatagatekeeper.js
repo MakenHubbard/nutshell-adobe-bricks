@@ -6,7 +6,7 @@ const eventsDom = require('./eventsDom');
 
 //  --------- GET GET GET GET  ---------  //
 const eventToGET = () => {
-  let eventsArray = [];
+  const eventsArray = [];
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
@@ -14,9 +14,12 @@ const eventToGET = () => {
     })
       .done(allEvents => {
         if (allEvents !== null) {
-          eventsArray = Object.values(allEvents);
+          Object.keys(allEvents).forEach(firebaseKey => {
+            allEvents[firebaseKey].id = firebaseKey;
+            eventsArray.push(allEvents[firebaseKey]);
+          });
+          resolve(eventsArray);
         }
-        resolve(eventsArray);
       })
       .fail(error => {
         console.error('Error in promise', error);
@@ -67,9 +70,29 @@ const requestEventPOST = addThisEvent => {
 //  ------end  POST POST POST  ---------  //
 
 //  ---------  DELETE DELETE   ---------  //
-const eventToDELETE = deleteThisEvent => {};
-const requestEventDELETE = deleteThisEvent => {
-  eventToDELETE(deleteThisEvent).then().catch();
+const eventToDELETE = deleteThisEvent => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `https://nutshell-df075.firebaseio.com/events/${deleteThisEvent}.json`,
+    })
+      .done(result => {
+        resolve(result);
+      })
+      .fail(err => {
+        console.error(err);
+        reject(err);
+      });
+  });
+};
+const requestEventDELETE = deleteThisEventId => {
+  eventToDELETE(deleteThisEventId)
+    .then(() => {
+      requestEventGET();
+    })
+    .catch(error => {
+      console.error('Error on DELETE process', error);
+    });
 };
 //  ------end  DELETE DELETE   ---------  //
 
