@@ -38,7 +38,7 @@ const showHideNewsFeed = () => {
 const newsInitializer = () => {
   saveArticleEvent();
   showHideNewsFeed();
-  favImageError();
+  // favImageError();
 };
 
 module.exports = newsInitializer;
