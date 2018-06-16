@@ -10,20 +10,20 @@ const bindEventsData = () => {
     eventsDataGateKP.requestEventGET();
   });
   $('#events-view').on('click', '#events-add-new', e => {
-    $('#events-header-view').addClass('hide');
+    $('#events-view-nav').addClass('hide');
+    $('#events-view-data').removeClass('hide');
     eventsDom.buildEventInputForm();
+  });
 
-    // requires input
+  $('#events-view').on('click', '.glyphicon-trash', e => {
+    const eventToTrash = $(e.target).closest('.panel-event');
+    eventsDataGateKP.requestEventDELETE(eventToTrash[0].id);
   });
-  $('#events-view').on('click', '.CLASSNAME-HERE', e => {
-    eventsDataGateKP.requestEventDELETE();
-    // requires input
-  });
+
   $('#events-view').on('click', '.CLASSNAME-HERE', e => {
     eventsDataGateKP.requestEventPUT();
-    // requires input
   });
-  //
+
   $('#events-view').on('click', '#event-btn-add-new', e => {
     $('#events-header-view').addClass('hide');
     const eventToAdd = {
