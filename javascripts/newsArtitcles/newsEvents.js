@@ -27,7 +27,6 @@ const deleteArticleEvent = () => {
   $(document).on('click', '.deleteArticle', (e) => {
     e.preventDefault();
     const articleToDeleteId = e.target.dataset.firebaseId;
-    console.log(articleToDeleteId);
     firebaseApi.deleteArticle(articleToDeleteId)
       .then(() => {
         firebaseApi.getArticles();
