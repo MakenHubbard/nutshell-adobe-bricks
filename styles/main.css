@@ -123,6 +123,11 @@ body {
   height: 36px;
   width: 36px;
 }
-#accordion {
-  max-height: 90%;
+#articles-view {
+  padding: 0;
+}
+
+#newsFeed{
+  height: calc(100%-38px);
+  overflow-y: auto;
 }
