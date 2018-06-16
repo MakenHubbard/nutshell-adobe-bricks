@@ -123,8 +123,18 @@ body {
   height: 36px;
   width: 36px;
 }
+
 #articles-view {
   padding: 0;
-  /* height: calc(100% - 38px); */
+}
+
+#newsSection {
+  height: 100%;
+}
+
+#newsFeed {
+  padding-top: 0;
+  margin-top: 0;
+  height: calc(100% - 55px);
   overflow-y: auto;
 }

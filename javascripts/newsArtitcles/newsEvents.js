@@ -3,10 +3,12 @@ const firebaseApi = require('./newsFire');
 const saveArticleEvent = () => {
   $(document).on('click','#newArticle', (e) => {
     e.preventDefault();
+    $('.collapse').collapse('toggle');
     console.log(e);
     const titleInput = $('#title').val();
     const urlInput = $('#url').val();
     const synopsisInput = $('#synopsis').val();
+
     const articleToAdd = {
       title: titleInput ,
       synopsis: synopsisInput,
@@ -14,7 +16,7 @@ const saveArticleEvent = () => {
     };
     firebaseApi.saveArticles(articleToAdd)
       .then(() => {
-        // collaspe and reprint dom
+        firebaseApi.getArticles();
       })
       .catch((error) => {
         console.error('error in saving article', error);
@@ -28,9 +30,16 @@ const showHideNewsFeed = () => {
   });
 };
 
+const favImageError = () => {
+  $(document).on('error','.fav', (e) => {
+    console.log(e);
+  });
+};
+
 const newsInitializer = () => {
   saveArticleEvent();
   showHideNewsFeed();
+  favImageError();
 };
 
 module.exports = newsInitializer;

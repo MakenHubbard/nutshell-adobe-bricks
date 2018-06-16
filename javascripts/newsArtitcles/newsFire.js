@@ -57,4 +57,5 @@ const firebaseCRUD = () => {
 module.exports = {
   firebaseCRUD,
   saveArticles,
+  getArticles,
 };
