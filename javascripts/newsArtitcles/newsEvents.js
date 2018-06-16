@@ -4,7 +4,6 @@ const saveArticleEvent = () => {
   $(document).on('click','#newArticle', (e) => {
     e.preventDefault();
     $('.collapse').collapse('toggle');
-    console.log(e);
     const titleInput = $('#title').val();
     const urlInput = $('#url').val();
     const synopsisInput = $('#synopsis').val();
@@ -30,11 +29,11 @@ const showHideNewsFeed = () => {
   });
 };
 
-const favImageError = () => {
-  $(document).on('error','.fav', (e) => {
-    console.log(e);
-  });
-};
+// const favImageError = () => {
+//   $(document).on('error','.fav', (e) => {
+
+//   });
+// };
 
 const newsInitializer = () => {
   saveArticleEvent();
