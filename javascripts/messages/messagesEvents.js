@@ -10,6 +10,10 @@ const showMessages = () => {
     });
 };
 
+// const saveNewMessageEvent = () => {
+
+// };
+
 module.exports = {
   showMessages,
 };

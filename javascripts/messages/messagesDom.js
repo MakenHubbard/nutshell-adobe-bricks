@@ -36,7 +36,7 @@ const buildMessagesDomString = (allMessagesArray) => {
 };
 
 const printMessagesToDom = (results) => {
-  $('#messages-view').append(results);
+  $('#messages-text').html(results);
 };
 
 module.exports = {
