@@ -1,7 +1,9 @@
 const newsInit = require('../newsArtitcles/newsMain');
-
+// const { getAllMessages, } = require('../messages/messagesFirebaseApi');
+const {showMessages,} = require('../messages/messagesEvents');
 const friends = require('../friends/core');
 const firebaseApi = require('../firebase/firebaseApi');
+const eventsData = require('../events/eventsData');
 const tasks = require('../tasks/data');
 
 let inputUsername = '';
@@ -97,6 +99,7 @@ const authEvents = () => {
   $('#logOutButt').click(logOut);
   logInNutShell();
   registerButtonClicked();
+
 };
 
 const logInNutShell = () => {
@@ -118,8 +121,10 @@ const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
   newsInit();
+  showMessages();
   tasks.initTasks();
   friends.initializeFriendsData();
+  eventsData.firebaseGET();
 };
 
 module.exports = {
