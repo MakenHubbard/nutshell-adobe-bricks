@@ -5,6 +5,33 @@ const printToDom = (eventsDom, eventsId) => {
   $(eventsId).html(eventsDom);
 };
 
+const buildUpdateEventInputForm = objToUpdate => {
+  let output = '';
+  output = `
+  <div class="col-xs-2">
+    <h2 class='h2-spacing'>Update Event Details</h2>
+  </div>
+  <div class="col-xs-8 col-xs-offset-1">
+    <form>
+      <div class="form-group form-top-padding">
+        <label for="eventName">Event Name: </label>
+        <input type="text" class="form-control" id="eventName" placeholder="" value="${objToUpdate.event}">
+      </div>
+      <div class="form-group">
+        <label for="eventLocation">Event Location: </label>
+        <input type="text" class="form-control" id="eventLocation" placeholder="" value="${objToUpdate.location}">
+      </div>
+      <div class="form-group">
+        <label for="eventDate">Event Date: </label>
+        <input type="text" class="form-control" id="eventDate" placeholder="" value="${objToUpdate.startDate}">
+      </div>
+      <button class="btn btn-primary" id="event-btn-update">Update</button>
+      <button class="btn btn-danger" id="event-btn-cancel-new">Cancel</button>
+    </form>
+  </div>`;
+  printToDom(output, '#events-view-data');
+};
+
 const buildEventInputForm = () => {
   let output = '';
   output = `
@@ -61,4 +88,5 @@ const buildAllEventsString = (inputEvents) => {
 module.exports = {
   buildAllEventsString,
   buildEventInputForm,
+  buildUpdateEventInputForm,
 };

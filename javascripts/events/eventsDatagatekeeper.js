@@ -74,9 +74,26 @@ const requestEventDELETE = deleteThisEvent => {
 //  ------end  DELETE DELETE   ---------  //
 
 //  --------- PUT PUT PUT PUT  ---------  //
-const eventToPUT = updateThisEvent => {};
+const eventToPUT = updateThisEvent => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `https://nutshell-df075.firebaseio.com/events/${updateThisEvent}.json`,
+    })
+      .done(result => {
+        resolve(result);
+      })
+      .fail(error => {
+        reject(error);
+      });
+  });
+};
 const requestEventPUT = updateThisEvent => {
-  eventToPUT(updateThisEvent).then().catch();
+  eventToPUT(updateThisEvent)
+    .then(() => {
+      requestEventGET();
+    })
+    .catch();
 };
 //  ------end PUT PUT PUT PUT  ---------  //
 
