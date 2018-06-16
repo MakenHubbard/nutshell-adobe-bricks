@@ -33,7 +33,6 @@ const bindEventsData = () => {
       'userUid': ``,
     };
     eventsDataGateKP.requestEventPOST(eventToAdd);
-    alert('Thanks for adding a new event!');
     eventsDataGateKP.requestEventGET();
     $('#events-header-view').removeClass('hide');
   });
