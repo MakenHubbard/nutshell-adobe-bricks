@@ -3,6 +3,37 @@
 const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
 
+const callEventUpdatePromise = e => {
+  getEventToUpdate()
+    .then(allEvents => {
+      return allEvents;
+    })
+    .then(allEvents => {
+      eventsDom.buildAllEventsString(allEvents);
+    })
+    .catch(error => {
+      console.error('Error during Firebase request', error);
+    });
+};
+
+const getEventToUpdate = e => {
+  return new Promise((resolve, reject) => {
+  })
+    .done(e => {
+      const eventToUpdate = {
+        'event': $(e.target).closest('#event').val(),
+        'location': $(e.target).closest('.event-location').val(),
+        'startDate': $(e.target).closest('.event-date').val(),
+        'userUid': ``,
+        'id': $(e.target).closest('#id').val(),
+      };
+      resolve(eventToUpdate);
+    })
+    .fail(err => {
+      reject(err);
+    });
+};
+
 const bindEventsData = () => {
   $('#events-view').on('click', '#events-view-all', e => {
     $('#events-header-buttons').removeClass('hide');
@@ -25,13 +56,8 @@ const bindEventsData = () => {
     e.preventDefault();
     $('#events-header-buttons').addClass('hide');
     $('#events-view-data').removeClass('hide');
-    const eventToUpdate = {
-      'event': `${$('#eventName').val()}`,
-      'location': `${$('#eventLocation').val()}`,
-      'startDate': `${$('#eventDate').val()}`,
-      'userUid': ``,
-    };
-    console.log(eventToUpdate);
+    const eventToUpdate = callEventUpdatePromise(e);
+    console.log('event to update', eventToUpdate);
     eventsDom.buildUpdateEventInputForm(eventToUpdate);
   });
 
