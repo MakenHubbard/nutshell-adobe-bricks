@@ -117,9 +117,16 @@ body {
 /* end of navbar styles */
 
 /* #events-view styles */
-
+#events-view {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
 .event-name {
   border-bottom: 1px solid lightgray;
+  margin-top: 0;
 }
 .events-nav-header {
   border-bottom: 1px solid black;
@@ -127,8 +134,7 @@ body {
 }
 #events-add-new,
 #events-view-all {
-  padding-top: 20px;
-  padding-bottom: 20px;
+
 }
 .form-top-padding {
   padding-top: 20px;
@@ -136,5 +142,17 @@ body {
 .h2-spacing {
   line-height: 1.7;
 }
-
+.panel-event {
+  margin: 0;
+  padding: 0;
+}
+.panel-body {
+  padding: 5px;
+}
+#events-view-data {
+  margin: 0px 10px 0px 10px;
+}
+.inline {
+  display: inline;
+}
 /*      END #events-view styles */

@@ -33,25 +33,13 @@ const buildEventInputForm = () => {
 };
 
 const buildAllEventsString = (inputEvents) => {
-  let output = `
-    <div class="row events-nav-header" id="events-view-nav">
-      <div class="col-xs-3" id="events-add-new">
-        <h4 class="text-left">Add New Event</h4>
-      </div>
-      <div class="col-xs-6">
-        <h2 class="text-center">Your Events</h2>
-      </div>
-      <div class="col-xs-3" id="events-view-all">
-        <h4 class="text-right">View All Events</h4>
-      </div>
-    </div>
-  `;
+  let output = '';
   inputEvents.forEach((event, index) => {
     if (index % 3 === 0) {
       output += `<div class="row">`;
     }
     output += `
-    <div class="panel panel-default col-sm-4" id="${event.startDate}">
+    <div class="panel panel-default panel-event col-sm-4" id="${event.startDate}">
       <div class="panel-body">
         <h4 class="event-name text-center">${event.event}</h4>
         <p class="event-location">${event.location}</p>

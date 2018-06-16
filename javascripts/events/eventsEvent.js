@@ -24,6 +24,7 @@ const bindEventsData = () => {
   });
   //
   $('#events-view').on('click', '#event-btn-add-new', e => {
+    $('#events-header-view').addClass('hide');
     const eventToAdd = {
       'event': `${$('#eventName').val()}`,
       'location': `${$('#eventLocation').val()}`,
@@ -36,7 +37,9 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '#event-btn-cancel-new', e => {
+    e.preventDefault();
     $('#events-view-nav').removeClass('hide');
+    $('#events-header-view').removeClass('hide');
     $('#eventName').val('');
     $('#eventLocation').val('');
     $('#eventDate').val('');
