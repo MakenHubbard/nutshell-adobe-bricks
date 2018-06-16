@@ -125,9 +125,6 @@ body {
 }
 #articles-view {
   padding: 0;
-}
-
-#newsFeed{
-  height: calc(100%-38px);
+  /* height: calc(100% - 38px); */
   overflow-y: auto;
 }
