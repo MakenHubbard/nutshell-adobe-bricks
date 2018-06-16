@@ -73,6 +73,7 @@ body {
   background-color: purple;
   margin-top: 2%;
   margin-bottom: 0;
+  padding: 0;
   overflow-y: scroll;
 }
 
@@ -106,15 +107,43 @@ body {
 
 /* END RIGHT SIDE MODULE STYLES */
 
-/* navbar styles */
+/* NAVBAR STYLES */
 
 .navbar {
   background-color: pink;
   color: purple;
 }
 
+/* END OF NAVBAR STYLES */
 
-/* end of navbar styles */
+/* MESSAGES STYLES */
+
+#WhoSaidIt {
+  padding-left: 10px;
+}
+
+#userMessage {
+  padding-left: 20px;
+}
+
+#editButt {
+  margin-left: 240px;
+}
+
+.pull-right {
+  float: right;
+}
+
+#add-message {
+  margin-left: 50px;
+  margin-top: 6px;
+  background-color: palegreen;
+}
+
+#message-title {
+  color: green;
+}
+/*      END MESSAGES STYLES */
 
 /* #events-view styles */
 #events-view {
@@ -132,10 +161,6 @@ body {
   border-bottom: 1px solid black;
   max-height: 50px;
 }
-#events-add-new,
-#events-view-all {
-
-}
 .form-top-padding {
   padding-top: 20px;
 }
@@ -152,7 +177,4 @@ body {
 #events-view-data {
   margin: 0px 10px 0px 10px;
 }
-.inline {
-  display: inline;
-}
-/*      END #events-view styles */
+/* END of #events-view styles */
