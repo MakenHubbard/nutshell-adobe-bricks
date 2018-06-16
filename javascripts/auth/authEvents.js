@@ -1,4 +1,4 @@
-
+const newsInit = require('../newsArtitcles/newsMain');
 // const { getAllMessages, } = require('../messages/messagesFirebaseApi');
 const {showMessages,} = require('../messages/messagesEvents');
 const friends = require('../friends/core');
@@ -120,6 +120,7 @@ const logInNutShell = () => {
 const dashBoardView = () => {
   $('#main-view').removeClass('hide');
   $('#authentication').addClass('hide');
+  newsInit();
   showMessages();
   tasks.initTasks();
   friends.initializeFriendsData();
