@@ -12,7 +12,9 @@ const addTaskEvent = () => {
         isCompleted: false,
         userUid: getTaskUID(),
       };
-      data.addNewTask(newTask);
+      if (newTask.task) {
+        data.addNewTask(newTask);
+      }
       $('#new-task').val('');
     }
   });
