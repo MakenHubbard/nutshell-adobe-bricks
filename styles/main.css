@@ -145,7 +145,7 @@ body {
 }
 /*      END MESSAGES STYLES */
 
-<<<<<<< HEAD
+
 /* end of navbar styles */
 
 
@@ -170,7 +170,7 @@ body {
   height: calc(100% - 55px);
   overflow-y: auto;
 }
-=======
+
 /* #events-view styles */
 #events-view {
   margin: 0;
@@ -204,4 +204,4 @@ body {
   margin: 0px 10px 0px 10px;
 }
 /* END of #events-view styles */
->>>>>>> 9e43e522d82b948978ac8fd4cae5028c751c0070
+
