@@ -96,7 +96,7 @@ const authEvents = () => {
   $('#logOutButt').click(logOut);
   logInNutShell();
   registerButtonClicked();
-  eventsData.firebaseGET();
+
 };
 
 const logInNutShell = () => {
@@ -119,6 +119,7 @@ const dashBoardView = () => {
   $('#authentication').addClass('hide');
   tasks.initTasks();
   friends.initializeFriendsData();
+  eventsData.firebaseGET();
 };
 
 module.exports = {
