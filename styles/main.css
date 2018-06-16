@@ -88,19 +88,24 @@ body {
   overflow-y: auto;
 }
 
+.friends-panel > ul {
+  margin-bottom: 0;
+}
+
 /* removes some padding from friends list tabs on certain screen widths to prevent overflow */
-@media (min-width: 992px) and (max-width: 1300px) {
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
   #friends-tabs > li > a {
     padding: 10px 5px;
   }
 }
 
-.delete-friend-button,
-.request-friend-button,
-.accept-friend-button,
-.reject-friend-button,
-.cancel-friend-button,
-.clear-rejected-friend-button {
+@media only screen and (min-width: 1550px) {
+  #friends-tabs > li > a {
+    padding: 10px 25px;
+  }
+}
+
+[class*="friend-button"] {
   float: right;
   margin-top: -7px;
 }
