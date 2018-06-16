@@ -1,8 +1,38 @@
+const eventsDom = require('./eventsDom');
 const {getConfig,} = require('../firebase/firebaseApi');
 
 //  --------- GET GET GET GET  ---------  //
-const eventToGET = () => {};
-const requestEventGET = () => {};
+const eventToGET = () => {
+  let eventsArray = [];
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: `${getConfig().databaseURL}/events.json`,
+    })
+      .done(allEvents => {
+        if (allEvents !== null) {
+          eventsArray = Object.values(allEvents);
+        }
+        resolve(eventsArray);
+      })
+      .fail(error => {
+        console.error('Error in promise', error);
+        reject(error);
+      });
+  });
+};
+const requestEventGET = () => {
+  eventToGET()
+    .then(allEvents => {
+      return allEvents;
+    })
+    .then(allEvents => {
+      eventsDom.buildAllEventsString(allEvents);
+    })
+    .catch(error => {
+      console.error('Error during Firebase request', error);
+    });
+};
 //  ------end GET GET GET GET  ---------  //
 
 //  ---------  POST POST POST  ---------  //
@@ -11,7 +41,7 @@ const eventToPOST = addThisEvent => {
     $.ajax({
       method: 'POST',
       url: `${getConfig().databaseURL}/events.json`,
-      data: JSON.stringify(newEventToAdd),
+      data: JSON.stringify(addThisEvent),
     })
       .done(result => {
         resolve(result);
@@ -35,25 +65,21 @@ const requestEventPOST = addThisEvent => {
 
 //  ---------  DELETE DELETE   ---------  //
 const eventToDELETE = deleteThisEvent => {};
-const requestEventDELETE = () => {
+const requestEventDELETE = deleteThisEvent => {
   eventToDELETE(deleteThisEvent).then().catch();
 };
 //  ------end  DELETE DELETE   ---------  //
 
 //  --------- PUT PUT PUT PUT  ---------  //
 const eventToPUT = updateThisEvent => {};
-const requestEventPUT = () => {
+const requestEventPUT = updateThisEvent => {
   eventToPUT(updateThisEvent).then().catch();
 };
 //  ------end PUT PUT PUT PUT  ---------  //
 
 module.exports = {
-  eventToGET,
   requestEventGET,
-  eventToPOST,
   requestEventPOST,
-  eventToDELETE,
   requestEventDELETE,
-  eventToPUT,
   requestEventPUT,
 };

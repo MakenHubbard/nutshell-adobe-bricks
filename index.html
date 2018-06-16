@@ -108,7 +108,38 @@
         <h1>Tasks</h1>
       </div>
       <div class="col-xs-12 left-module" id="events-view">
-        <h1>Events</h1>
+        <div class="row events-nav-header">
+          <div class="col-xs-3" id="events-add-new">
+            <h4 class="text-left">Add New Event</h4>
+          </div>
+          <div class="col-xs-6">
+            <h2 class="text-center">Your Events</h2>
+          </div>
+          <div class="col-xs-3" id="events-view-all">
+            <h4 class="text-right">View All Events</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12" id="events-view-data"></div>
+          <div class="col-xs-12" id="events-view-HIIIIIII">
+            <h3>Enter Event Details</h3>
+            <form>
+              <div class="form-group">
+                <label for="eventName">Event Name: </label>
+                <input type="text" class="form-control" id="eventName" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="eventLocation">Event Location: </label>
+                <input type="text" class="form-control" id="eventLocation" placeholder="Location">
+              </div>
+              <div class="form-group">
+                  <label for="eventDate">Event Date: </label>
+                  <input type="text" class="form-control" id="eventDate" placeholder="Date">
+                </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-md-4" id="right-side">
