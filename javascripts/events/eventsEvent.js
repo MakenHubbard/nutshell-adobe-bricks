@@ -4,7 +4,7 @@ const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
 
 const bindEventsData = () => {
-  $('#events-view').on('click', '.CLASSNAME-HERE', e => {
+  $('#events-view').on('click', '#events-view-all', e => {
     $('#events-view-nav').removeClass('hide');
     eventsDataGateKP.requestEventGET();
   });
@@ -22,6 +22,7 @@ const bindEventsData = () => {
     eventsDataGateKP.requestEventPUT();
     // requires input
   });
+  //
   $('#events-view').on('click', '#event-btn-add-new', e => {
     const eventToAdd = {
       'event': `${$('#eventName').val()}`,
@@ -30,8 +31,17 @@ const bindEventsData = () => {
       'userUid': ``,
     };
     eventsDataGateKP.requestEventPOST(eventToAdd);
+    alert('Thanks for adding a new event!');
+    eventsDataGateKP.requestEventGET();
   });
 
+  $('#events-view').on('click', '#event-btn-cancel-new', e => {
+    $('#events-view-nav').removeClass('hide');
+    $('#eventName').val('');
+    $('#eventLocation').val('');
+    $('#eventDate').val('');
+    eventsDataGateKP.requestEventGET();
+  });
 };
 
 module.exports = {

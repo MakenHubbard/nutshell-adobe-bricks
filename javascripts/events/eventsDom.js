@@ -26,13 +26,26 @@ const buildEventInputForm = () => {
         <input type="text" class="form-control" id="eventDate" placeholder="Date">
       </div>
       <button class="btn btn-primary" id="event-btn-add-new">Submit</button>
+      <button class="btn btn-danger" id="event-btn-cancel-new">Cancel</button>
     </form>
   </div>`;
   printToDom(output, '#events-view-data');
 };
 
 const buildAllEventsString = (inputEvents) => {
-  let output = '';
+  let output = `
+    <div class="row events-nav-header" id="events-view-nav">
+      <div class="col-xs-3" id="events-add-new">
+        <h4 class="text-left">Add New Event</h4>
+      </div>
+      <div class="col-xs-6">
+        <h2 class="text-center">Your Events</h2>
+      </div>
+      <div class="col-xs-3" id="events-view-all">
+        <h4 class="text-right">View All Events</h4>
+      </div>
+    </div>
+  `;
   inputEvents.forEach((event, index) => {
     if (index % 3 === 0) {
       output += `<div class="row">`;
