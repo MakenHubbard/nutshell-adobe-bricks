@@ -19,7 +19,7 @@ body {
 }
 
 .left-module {
-  height: 32%;
+  height: 30%;
   background-color: lightblue;
   margin-bottom: 2%;
 }
@@ -150,6 +150,32 @@ body {
 }
 /*      END MESSAGES STYLES */
 
+
+/* end of navbar styles */
+
+
+/* New Articles */
+
+.fav {
+  height: 36px;
+  width: 36px;
+}
+
+#articles-view {
+  padding: 0;
+}
+
+#newsSection {
+  height: 100%;
+}
+
+#newsFeed {
+  padding-top: 0;
+  margin-top: 0;
+  height: calc(100% - 55px);
+  overflow-y: auto;
+}
+
 /* #events-view styles */
 #events-view {
   margin: 0;
@@ -183,3 +209,4 @@ body {
   margin: 0px 10px 0px 10px;
 }
 /* END of #events-view styles */
+
