@@ -8,8 +8,26 @@ const printToDom = (eventsDom, eventsId) => {
 const buildEventInputForm = () => {
   let output = '';
   output = `
-
-  `;
+  <div class="col-xs-2">
+    <h2 class='h2-spacing'>Enter Event Details</h2>
+  </div>
+  <div class="col-xs-8 col-xs-offset-1">
+    <form>
+      <div class="form-group form-top-padding">
+        <label for="eventName">Event Name: </label>
+        <input type="text" class="form-control" id="eventName" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="eventLocation">Event Location: </label>
+        <input type="text" class="form-control" id="eventLocation" placeholder="Location">
+      </div>
+      <div class="form-group">
+        <label for="eventDate">Event Date: </label>
+        <input type="text" class="form-control" id="eventDate" placeholder="Date">
+      </div>
+      <button class="btn btn-primary" id="event-btn-add-new">Submit</button>
+    </form>
+  </div>`;
   printToDom(output, '#events-view-data');
 };
 

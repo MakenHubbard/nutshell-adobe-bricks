@@ -1,5 +1,5 @@
 const eventsDom = require('./eventsDom');
-const {getConfig,} = require('../firebase/firebaseApi');
+// const {getConfig,} = require('../firebase/firebaseApi');
 
 //  --------- GET GET GET GET  ---------  //
 const eventToGET = () => {
@@ -7,7 +7,7 @@ const eventToGET = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `${getConfig().databaseURL}/events.json`,
+      url: `https://nutshell-df075.firebaseio.com/events.json`,
     })
       .done(allEvents => {
         if (allEvents !== null) {
@@ -40,7 +40,7 @@ const eventToPOST = addThisEvent => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `${getConfig().databaseURL}/events.json`,
+      url: `https://nutshell-df075.firebaseio.com/events.json`,
       data: JSON.stringify(addThisEvent),
     })
       .done(result => {

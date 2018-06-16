@@ -91,3 +91,26 @@ body {
 
 
 /* end of navbar styles */
+
+/* #events-view styles */
+
+.event-name {
+  border-bottom: 1px solid lightgray;
+}
+.events-nav-header {
+  border-bottom: 1px solid black;
+  max-height: 50px;
+}
+#events-add-new,
+#events-view-all {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.form-top-padding {
+  padding-top: 20px;
+}
+.h2-spacing {
+  line-height: 1.7;
+}
+
+/*      END #events-view styles */
