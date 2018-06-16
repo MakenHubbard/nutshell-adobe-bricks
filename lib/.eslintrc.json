@@ -7,7 +7,8 @@
     "jquery": true
   },
     "globals": {
-      "firebase": true
+      "firebase": true,
+      "moment": true
     },
   "rules": {
     "promise/catch-or-return": "error",

@@ -73,6 +73,7 @@ body {
   background-color: purple;
   margin-top: 2%;
   margin-bottom: 0;
+  padding: 0;
   overflow-y: scroll;
 }
 
@@ -106,12 +107,41 @@ body {
 
 /* END RIGHT SIDE MODULE STYLES */
 
-/* navbar styles */
+/* NAVBAR STYLES */
 
 .navbar {
   background-color: pink;
   color: purple;
 }
 
+/* END OF NAVBAR STYLES */
 
-/* end of navbar styles */
+/* MESSAGES STYLES */
+
+#WhoSaidIt {
+  padding-left: 10px;
+}
+
+#userMessage {
+  padding-left: 20px;
+}
+
+#editButt {
+  margin-left: 240px;
+}
+
+.pull-right {
+  float: right;
+}
+
+#add-message {
+  margin-left: 50px;
+  margin-top: 6px;
+  background-color: palegreen;
+}
+
+#message-title {
+  color: green;
+}
+
+/* END OF MESSAGES STYLES */
