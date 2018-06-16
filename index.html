@@ -102,38 +102,43 @@
     </nav>
     <div class="col-xs-12 col-md-8" id="left-side">
       <div class="col-xs-12 left-module" id="articles-view">
-        <div class="">
-          <form class="form-horizontal">
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Title:</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="title" placeholder="Title">
+        <div id="newsSection">
+          <div class="panel-group center-block" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a id="plus" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <span class="glyphicon glyphicon-plus" ></span>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <div>
+                        <form>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                              <input id="title" type="text" class="form-control" name="email" placeholder="Title">
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
+                              <input id="url" type="text" class="form-control" name="password" placeholder="URL">
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                              <textarea class="form-control" rows="2" id="synopsis" placeholder="Synopsis" ></textarea>
+                              <span class="input-group-addon"><i id="newArticle" class=" btn glyphicon glyphicon-floppy-disk"></i></span>
+                            </div>
+                          </form>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">Synopsis:</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="synopsis" placeholder="Synopsis">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword3" class="col-sm-2 control-label">URL:</label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" id="url" placeholder="url">
-                  </div>
-                </div>
-                <div>
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default" id="newArticle">Add Article</button>
-                  </div>
-                </div>
-              </form>
-        </div>
-
+              </div>
+            </div>
         <div id="newsFeed">
 
         </div>
-
+        </div>
       </div>
       <div class="col-xs-12 left-module" id="tasks-view">
         <div class="panel panel-primary">

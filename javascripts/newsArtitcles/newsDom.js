@@ -1,6 +1,6 @@
 const buildUpArticle = (articlesArray) => {
-  console.log(articlesArray);
   let string = '';
+  string += `<div class="row">`;
   string += `<div class="media">`;
   for (let i = 0; i < articlesArray.length; i++) {
     string += `<div class="media-left media-top">`;
@@ -15,6 +15,7 @@ const buildUpArticle = (articlesArray) => {
     string += `<p>${articlesArray[i].synopsis}</p>`;
     string +=  `</div>`;
   }
+  string +=  `</div>`;
   string +=  `</div>`;
   printArticles(string);
 };

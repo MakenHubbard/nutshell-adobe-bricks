@@ -5,8 +5,6 @@ let firebaseConfig = {};
 // let uid = '';
 
 const checkConfig = () => {
-  console.log(firebaseConfig);
-  console.log(firebase.getConfig());
   firebaseConfig = firebase.getConfig();
 };
 
@@ -22,7 +20,6 @@ const getArticles = () => {
           Object.keys(allNewsObject).forEach((fbkey) => {
             allNewsObject[fbkey].id = fbkey;
             allNewsArray.push(allNewsObject[fbkey]);
-            console.log(allNewsArray);
             dom(allNewsArray);
           });
         }
