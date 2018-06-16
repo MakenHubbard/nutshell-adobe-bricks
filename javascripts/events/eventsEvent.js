@@ -6,10 +6,11 @@ const eventsDom = require('./eventsDom');
 const bindEventsData = () => {
   $('#events-view').on('click', '#events-view-all', e => {
     $('#events-view-nav').removeClass('hide');
+    $('#events-view-data').addClass('hide');
     eventsDataGateKP.requestEventGET();
   });
   $('#events-view').on('click', '#events-add-new', e => {
-    $('#events-view-nav').addClass('hide');
+    $('#events-header-view').addClass('hide');
     eventsDom.buildEventInputForm();
 
     // requires input
@@ -34,12 +35,13 @@ const bindEventsData = () => {
     eventsDataGateKP.requestEventPOST(eventToAdd);
     alert('Thanks for adding a new event!');
     eventsDataGateKP.requestEventGET();
+    $('#events-header-view').removeClass('hide');
   });
 
   $('#events-view').on('click', '#event-btn-cancel-new', e => {
     e.preventDefault();
-    $('#events-view-nav').removeClass('hide');
     $('#events-header-view').removeClass('hide');
+    $('#events-view-data').html('');
     $('#eventName').val('');
     $('#eventLocation').val('');
     $('#eventDate').val('');
