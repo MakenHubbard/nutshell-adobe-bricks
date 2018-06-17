@@ -3,37 +3,6 @@
 const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
 
-const callEventUpdatePromise = e => {
-  getEventToUpdate()
-    .then(allEvents => {
-      return allEvents;
-    })
-    .then(allEvents => {
-      eventsDom.buildAllEventsString(allEvents);
-    })
-    .catch(error => {
-      console.error('Error during Firebase request', error);
-    });
-};
-
-const getEventToUpdate = e => {
-  return new Promise((resolve, reject) => {
-  })
-    .done(e => {
-      const eventToUpdate = {
-        'event': $(e.target).closest('#event').val(),
-        'location': $(e.target).closest('.event-location').val(),
-        'startDate': $(e.target).closest('.event-date').val(),
-        'userUid': ``,
-        'id': $(e.target).closest('#id').val(),
-      };
-      resolve(eventToUpdate);
-    })
-    .fail(err => {
-      reject(err);
-    });
-};
-
 const bindEventsData = () => {
   $('#events-view').on('click', '#events-view-all', e => {
     $('#events-header-buttons').removeClass('hide');
@@ -53,12 +22,16 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '.glyphicon-pencil', e => {
-    e.preventDefault();
+    const t = $(e.target).closest('.panel');
+    const objToUpdate = {
+      'id': $(e.target).closest('div[id]'),
+      'event': t.find('.event-name').text(),
+      'location': t.find('.event-location').text(),
+      'startDate': t.find('.event-date').text(),
+    };
     $('#events-header-buttons').addClass('hide');
-    $('#events-view-data').removeClass('hide');
-    const eventToUpdate = callEventUpdatePromise(e);
-    console.log('event to update', eventToUpdate);
-    eventsDom.buildUpdateEventInputForm(eventToUpdate);
+    $('#events-view-data').html('');
+    eventsDom.buildUpdateEventInputForm(objToUpdate);
   });
 
   $('#events-view').on('click', '#event-btn-add-new', e => {

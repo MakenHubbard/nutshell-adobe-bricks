@@ -39,6 +39,49 @@ const requestEventGET = () => {
       console.error('Error during Firebase request', error);
     });
 };
+
+const eventSingleToGET = eventId => {
+  const eventsArray = [];
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'GET',
+      url: `https://nutshell-df075.firebaseio.com/events.json`,
+    })
+      .done(allEvents => {
+        if (allEvents !== null) {
+          Object.keys(allEvents).forEach(firebaseKey => {
+            allEvents[firebaseKey].id = firebaseKey;
+            eventsArray.push(allEvents[firebaseKey]);
+          });
+          for (let i = 0; i < allEvents.length; i++) {
+            if (allEvents === eventId) {
+              console.log('match with ', eventId);
+            } else {
+              console.log('no matches', eventId);
+            }
+          }
+
+          resolve(eventsArray);
+        }
+      })
+      .fail(error => {
+        console.error('Error in promise', error);
+        reject(error);
+      });
+  });
+};
+const requestEventSingleGET = eventId => {
+  eventSingleToGET(eventId)
+    .then(allEvents => {
+      return allEvents;
+    })
+    .then(allEvents => {
+      // eventsDom.buildAllEventsString(allEvents);
+    })
+    .catch(error => {
+      console.error('Error during Firebase request', error);
+    });
+};
 //  ------end GET GET GET GET  ---------  //
 
 //  ---------  POST POST POST  ---------  //
@@ -122,6 +165,7 @@ const requestEventPUT = updateThisEvent => {
 
 module.exports = {
   requestEventGET,
+  requestEventSingleGET,
   requestEventPOST,
   requestEventDELETE,
   requestEventPUT,
