@@ -48,7 +48,19 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '#event-btn-update', e => {
-
+    const eventId = $(e.target).closest('div[id]');
+    const eventToUpdate = {
+      'event': $('#eventName').val(),
+      'location': $('#eventLocation').val(),
+      'startDate': $('#eventDate').val(),
+      'id': eventId,
+      'userUid': '',
+    };
+    $('#events-header-view').removeClass('hide');
+    $('#events-header-buttons').removeClass('hide');
+    $('#events-view-nav').removeClass('hide');
+    eventsDataGateKP.requestEventPUT(eventToUpdate);
+    eventsDataGateKP.requestEventGET();
   });
 
   $('#events-view').on('click', '#event-btn-cancel-new', e => {
