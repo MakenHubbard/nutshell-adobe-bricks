@@ -48,14 +48,31 @@ const saveArticles = (newArticle) => {
   });
 };
 
+const deleteArticle = (articleId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${firebaseConfig.databaseURL}/articles/${articleId}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 const firebaseCRUD = () => {
   checkConfig();
   getArticles();
   saveArticles();
+  deleteArticle();
 };
 
 module.exports = {
   firebaseCRUD,
   saveArticles,
   getArticles,
+  deleteArticle,
 };

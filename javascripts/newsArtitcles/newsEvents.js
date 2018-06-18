@@ -23,11 +23,25 @@ const saveArticleEvent = () => {
   });
 };
 
-const showHideNewsFeed = () => {
-  $(document).on('click','#plus', (e) => {
-    $('#newsFeed').toggle();
+const deleteArticleEvent = () => {
+  $(document).on('click', '.deleteArticle', (e) => {
+    e.preventDefault();
+    const articleToDeleteId = e.target.dataset.firebaseId;
+    firebaseApi.deleteArticle(articleToDeleteId)
+      .then(() => {
+        firebaseApi.getArticles();
+      })
+      .catch((error) => {
+        console.error('error', error);
+      });
   });
 };
+
+// const showHideNewsFeed = () => {
+//   $(document).on('click','#plus', (e) => {
+//     // $('#newsFeed').toggle();
+//   });
+// };
 
 // const favImageError = () => {
 //   $(document).on('error','.fav', (e) => {
@@ -37,7 +51,8 @@ const showHideNewsFeed = () => {
 
 const newsInitializer = () => {
   saveArticleEvent();
-  showHideNewsFeed();
+  deleteArticleEvent();
+  // showHideNewsFeed();
   // favImageError();
 };
 
