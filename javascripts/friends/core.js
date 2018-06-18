@@ -54,6 +54,7 @@ const initializeFriendsData = () => {
       updateDisplayNames(bothData[1]);
       updateFriends(bothData[0]);
       populateViews();
+      $('#friend-search').val('');
     })
     .catch(err => console.error(err));
 };
