@@ -49,6 +49,7 @@ const clearRejectionEvent = () => {
 const filterSearchEvent = () => {
   $('#friend-search').on('change', () => {
     $('.available-friend-item').each(function () {
+      // the jQuery .text() method also returns the text of the child elements in the string, so we slice that out
       $(this).text().slice(0, -10).toLowerCase().includes($('#friend-search').val().toLowerCase()) ? $(this).removeClass('hide') : $(this).addClass('hide');
     });
   });
