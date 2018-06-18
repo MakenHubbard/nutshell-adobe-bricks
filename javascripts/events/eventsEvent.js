@@ -2,6 +2,17 @@
 // Handles user events
 const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
+const auth = require('../auth/auth');
+
+const canUserModifyEvents = idToTest => {
+  console.log('current user:', auth.getUID());
+  console.log('testing user------', idToTest);
+  if (auth.getUID() === idToTest) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const bindEventsData = () => {
   $('#events-view').on('click', '#events-view-all', e => {
@@ -18,7 +29,10 @@ const bindEventsData = () => {
 
   $('#events-view').on('click', '.glyphicon-trash', e => {
     const eventToTrash = $(e.target).closest('.panel-event');
-    eventsDataGateKP.requestEventDELETE(eventToTrash[0].id);
+    const messageCreator = eventToTrash.data('uid');
+    if (canUserModifyEvents(messageCreator)) {
+      eventsDataGateKP.requestEventDELETE(eventToTrash[0].id);
+    }
   });
 
   $('#events-view').on('click', '.glyphicon-pencil', e => {
@@ -40,7 +54,7 @@ const bindEventsData = () => {
       'event': `${$('#eventName').val()}`,
       'location': `${$('#eventLocation').val()}`,
       'startDate': `${$('#eventDate').val()}`,
-      'userUid': ``,
+      'userUid': auth.getUID(),
     };
     eventsDataGateKP.requestEventPOST(eventToAdd);
     eventsDataGateKP.requestEventGET();

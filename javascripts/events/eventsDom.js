@@ -63,7 +63,7 @@ const buildAllEventsString = (inputEvents) => {
   let output = '';
   inputEvents.forEach((event, index) => {
     output += `
-    <div class="panel panel-default panel-event col-sm-4" id="${event.id}">
+    <div class="panel panel-default panel-event col-sm-4" id="${event.id}" data-uid="${event.userUid}">
       <div class="panel-body">
         <h4 class="event-name text-center">${event.event}</h4>
         <p class="event-location">${event.location}</p>
