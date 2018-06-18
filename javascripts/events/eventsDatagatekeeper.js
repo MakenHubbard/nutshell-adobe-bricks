@@ -2,7 +2,7 @@
 // Call promises and call firebase in here
 
 const eventsDom = require('./eventsDom');
-// const {getConfig,} = require('../firebase/firebaseApi');
+const {getConfig,} = require('../firebase/firebaseApi');
 
 //  --------- GET GET GET GET  ---------  //
 const eventToGET = () => {
@@ -10,7 +10,7 @@ const eventToGET = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://nutshell-df075.firebaseio.com/events.json`,
+      url: `${getConfig().databaseURL}/events.json`,
     })
       .done(allEvents => {
         if (allEvents !== null) {
@@ -46,7 +46,7 @@ const eventToPOST = addThisEvent => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://nutshell-df075.firebaseio.com/events.json`,
+      url: `${getConfig().databaseURL}/events.json`,
       data: JSON.stringify(addThisEvent),
     })
       .done(result => {
@@ -74,7 +74,7 @@ const eventToDELETE = deleteThisEvent => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'DELETE',
-      url: `https://nutshell-df075.firebaseio.com/events/${deleteThisEvent}.json`,
+      url: `${getConfig().databaseURL}/events/${deleteThisEvent}.json`,
     })
       .done(result => {
         resolve(result);
@@ -101,7 +101,7 @@ const eventToPUT = (updateThisEvent, firebaseId) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PUT',
-      url: `https://nutshell-df075.firebaseio.com/events/${firebaseId}.json`,
+      url: `${getConfig().databaseURL}/events/${firebaseId}.json`,
       data: JSON.stringify(updateThisEvent),
     })
       .done(result => {

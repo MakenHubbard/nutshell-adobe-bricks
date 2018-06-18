@@ -1,5 +1,6 @@
 // Andy Million
 // Handles user events
+
 const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
 const auth = require('../auth/auth');
