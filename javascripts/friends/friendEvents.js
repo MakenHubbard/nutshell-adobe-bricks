@@ -49,7 +49,7 @@ const clearRejectionEvent = () => {
 const filterSearchEvent = () => {
   $('#friend-search').on('change', () => {
     $('.available-friend-item').each(function () {
-      $(this).text().replace('Request', '').toLowerCase().includes($('#friend-search').val().toLowerCase()) ? $(this).removeClass('hide') : $(this).addClass('hide');
+      $(this).text().slice(0, -10).toLowerCase().includes($('#friend-search').val().toLowerCase()) ? $(this).removeClass('hide') : $(this).addClass('hide');
     });
   });
 };
