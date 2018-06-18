@@ -11,7 +11,7 @@ const buildUpdateEventInputForm = objToUpdate => {
   <div class="col-xs-2">
     <h2 class='h2-spacing'>Update Event Details</h2>
   </div>
-  <div class="col-xs-8 col-xs-offset-1">
+  <div class="col-xs-8 col-xs-offset-1" id="${objToUpdate.id}">
     <form>
       <div class="form-group form-top-padding">
         <label for="eventName">Event Name: </label>
@@ -61,7 +61,7 @@ const buildEventInputForm = () => {
 
 const buildAllEventsString = (inputEvents) => {
   let output = '';
-  inputEvents.forEach((event, index) => {
+  inputEvents.forEach(event => {
     output += `
     <div class="panel panel-default panel-event col-sm-4" id="${event.id}" data-uid="${event.userUid}">
       <div class="panel-body">

@@ -5,8 +5,6 @@ const eventsDom = require('./eventsDom');
 const auth = require('../auth/auth');
 
 const canUserModifyEvents = idToTest => {
-  console.log('current user:', auth.getUID());
-  console.log('testing user------', idToTest);
   if (auth.getUID() === idToTest) {
     return true;
   } else {
@@ -15,9 +13,11 @@ const canUserModifyEvents = idToTest => {
 };
 
 const bindEventsData = () => {
-  $('#events-view').on('click', '#events-view-all', e => {
+  $('#events-view').on('click', '#events-view-nav', e => {
+    e.preventDefault();
     $('#events-header-buttons').removeClass('hide');
-    $('#events-view-data').addClass('hide');
+    $('#events-header-view').removeClass('hide');
+    $('#events-view-data').removeClass('hide');
     eventsDataGateKP.requestEventGET();
   });
 
@@ -28,24 +28,34 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '.glyphicon-trash', e => {
-    const eventToTrash = $(e.target).closest('.panel-event');
-    const messageCreator = eventToTrash.data('uid');
+    const t = $(e.target).closest('.panel-event');
+    const messageCreator = t.data('uid');
     if (canUserModifyEvents(messageCreator)) {
-      eventsDataGateKP.requestEventDELETE(eventToTrash[0].id);
+      eventsDataGateKP.requestEventDELETE(t[0].id);
+    } else {
+      $('#events-view-data').html('<h3>You do not have permission to delete this event.</h3>');
     }
   });
 
   $('#events-view').on('click', '.glyphicon-pencil', e => {
-    const t = $(e.target).closest('.panel');
-    const objToUpdate = {
-      'id': $(e.target).closest('div[id]'),
-      'event': t.find('.event-name').text(),
-      'location': t.find('.event-location').text(),
-      'startDate': t.find('.event-date').text(),
-    };
-    $('#events-header-buttons').addClass('hide');
-    $('#events-view-data').html('');
-    eventsDom.buildUpdateEventInputForm(objToUpdate);
+    const t = $(e.target).closest('.panel-event');
+    const messageCreator = t.data('uid');
+    let eventId = $(e.target).closest('div[id]');
+    eventId = eventId[0].id;
+    if (canUserModifyEvents(messageCreator)) {
+      const objToUpdate = {
+        'id': eventId,
+        'event': t.find('.event-name').text(),
+        'location': t.find('.event-location').text(),
+        'startDate': t.find('.event-date').text(),
+        'userUid': t.data('uid'),
+      };
+      $('#events-header-buttons').addClass('hide');
+      $('#events-view-data').html('');
+      eventsDom.buildUpdateEventInputForm(objToUpdate);
+    } else {
+      $('#events-view-data').html('<h3>You do not have permission to edit this event.</h3>');
+    }
   });
 
   $('#events-view').on('click', '#event-btn-add-new', e => {
@@ -62,18 +72,18 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '#event-btn-update', e => {
-    const eventId = $(e.target).closest('div[id]');
+    let eventId = $(e.target).closest('div');
+    eventId = eventId[0].id;
     const eventToUpdate = {
       'event': $('#eventName').val(),
       'location': $('#eventLocation').val(),
       'startDate': $('#eventDate').val(),
-      'id': eventId,
-      'userUid': '',
+      'userUid': auth.getUID(),
     };
     $('#events-header-view').removeClass('hide');
     $('#events-header-buttons').removeClass('hide');
     $('#events-view-nav').removeClass('hide');
-    eventsDataGateKP.requestEventPUT(eventToUpdate);
+    eventsDataGateKP.requestEventPUT(eventToUpdate, eventId);
     eventsDataGateKP.requestEventGET();
   });
 

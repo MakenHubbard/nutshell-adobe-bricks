@@ -112,8 +112,8 @@ const eventToPUT = (updateThisEvent, firebaseId) => {
       });
   });
 };
-const requestEventPUT = updateThisEvent => {
-  eventToPUT(updateThisEvent)
+const requestEventPUT = (updateThisEvent, firebaseId) => {
+  eventToPUT(updateThisEvent, firebaseId)
     .then(() => {
       requestEventGET();
     })
