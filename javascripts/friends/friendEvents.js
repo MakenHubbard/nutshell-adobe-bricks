@@ -1,22 +1,13 @@
 const friendsCore = require('./core');
 
-// const swapTab = () => {
-//   $('.friends-tab').on('click', event => {
-//     $('.friends-tab').closest('li').removeClass('active');
-//     $(event.target).closest('li').addClass('active');
-//     $('.friends-panel').addClass('hide');
-//     $(`#${event.target.id.replace('tab', 'view')}`).removeClass('hide');
-//   });
-// };
-
 const initFriendEvents = () => {
-  // swapTab();
   requestFriendEvent();
   cancelRequestEvent();
   deleteFriendEvent();
   acceptFriendEvent();
   rejectFriendEvent();
   clearRejectionEvent();
+  filterSearchEvent();
 };
 
 const requestFriendEvent = () => {
@@ -52,6 +43,14 @@ const rejectFriendEvent = () => {
 const clearRejectionEvent = () => {
   $(document).on('click', '.clear-rejected-friend-button', e => {
     friendsCore.clearRejection($(e.target).data('friendUid'));
+  });
+};
+
+const filterSearchEvent = () => {
+  $('#friend-search').on('change', () => {
+    $('.available-friend-item').each(function () {
+      $(this).text().replace('Request', '').toLowerCase().includes($('#friend-search').val().toLowerCase()) ? $(this).removeClass('hide') : $(this).addClass('hide');
+    });
   });
 };
 
