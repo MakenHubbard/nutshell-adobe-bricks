@@ -2,7 +2,7 @@
 // Call promises and call firebase in here
 
 const eventsDom = require('./eventsDom');
-// const {getConfig,} = require('../firebase/firebaseApi');
+const {getConfig,} = require('../firebase/firebaseApi');
 
 //  --------- GET GET GET GET  ---------  //
 const eventToGET = () => {
@@ -10,7 +10,7 @@ const eventToGET = () => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'GET',
-      url: `https://nutshell-df075.firebaseio.com/events.json`,
+      url: `${getConfig().databaseURL}/events.json`,
     })
       .done(allEvents => {
         if (allEvents !== null) {
@@ -27,13 +27,13 @@ const eventToGET = () => {
       });
   });
 };
-const requestEventGET = () => {
+const requestEventGET = friends => {
   eventToGET()
     .then(allEvents => {
       return allEvents;
     })
     .then(allEvents => {
-      eventsDom.buildAllEventsString(allEvents);
+      eventsDom.buildAllEventsString(allEvents, friends);
     })
     .catch(error => {
       console.error('Error during Firebase request', error);
@@ -46,7 +46,7 @@ const eventToPOST = addThisEvent => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `https://nutshell-df075.firebaseio.com/events.json`,
+      url: `${getConfig().databaseURL}/events.json`,
       data: JSON.stringify(addThisEvent),
     })
       .done(result => {
@@ -60,7 +60,7 @@ const eventToPOST = addThisEvent => {
 };
 const requestEventPOST = addThisEvent => {
   eventToPOST(addThisEvent)
-    .then(results => {
+    .then(() => {
       // print to DOM
     })
     .catch(err => {
@@ -74,7 +74,7 @@ const eventToDELETE = deleteThisEvent => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'DELETE',
-      url: `https://nutshell-df075.firebaseio.com/events/${deleteThisEvent}.json`,
+      url: `${getConfig().databaseURL}/events/${deleteThisEvent}.json`,
     })
       .done(result => {
         resolve(result);
@@ -97,9 +97,27 @@ const requestEventDELETE = deleteThisEventId => {
 //  ------end  DELETE DELETE   ---------  //
 
 //  --------- PUT PUT PUT PUT  ---------  //
-const eventToPUT = updateThisEvent => {};
-const requestEventPUT = updateThisEvent => {
-  eventToPUT(updateThisEvent).then().catch();
+const eventToPUT = (updateThisEvent, firebaseId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${getConfig().databaseURL}/events/${firebaseId}.json`,
+      data: JSON.stringify(updateThisEvent),
+    })
+      .done(result => {
+        resolve(result);
+      })
+      .fail(error => {
+        reject(error);
+      });
+  });
+};
+const requestEventPUT = (updateThisEvent, firebaseId) => {
+  eventToPUT(updateThisEvent, firebaseId)
+    .then(() => {
+      requestEventGET();
+    })
+    .catch();
 };
 //  ------end PUT PUT PUT PUT  ---------  //
 
