@@ -89,6 +89,7 @@ const sendNewMessage = (addedMessage) => {
   getMsgData.saveCreatedMessageToFirebase(addedMessage)
     .then((result) => {
       showMessages();
+      $('#newMessageTextField').val('');
     })
     .catch((error) => {
       console.error(error);

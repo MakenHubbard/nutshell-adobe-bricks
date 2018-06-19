@@ -1,4 +1,4 @@
-// Maken - getting messages,
+// Maken - getting messages took care of bro!
 const { getConfig, } = require('../firebase/firebaseApi');
 
 const getAllMessages = () => {
