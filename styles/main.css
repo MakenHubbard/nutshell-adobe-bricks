@@ -19,7 +19,7 @@ body {
 }
 
 .left-module {
-  height: 32%;
+  height: 30%;
   background-color: lightblue;
   margin-bottom: 2%;
 }
@@ -88,19 +88,24 @@ body {
   overflow-y: auto;
 }
 
+.friends-panel > ul {
+  margin-bottom: 0;
+}
+
 /* removes some padding from friends list tabs on certain screen widths to prevent overflow */
-@media (min-width: 992px) and (max-width: 1300px) {
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
   #friends-tabs > li > a {
     padding: 10px 5px;
   }
 }
 
-.delete-friend-button,
-.request-friend-button,
-.accept-friend-button,
-.reject-friend-button,
-.cancel-friend-button,
-.clear-rejected-friend-button {
+@media only screen and (min-width: 1700px) {
+  #friends-tabs > li > a {
+    padding: 10px 25px;
+  }
+}
+
+[class*="friend-button"] {
   float: right;
   margin-top: -7px;
 }
@@ -141,9 +146,72 @@ body {
 #message-title {
   color: green;
 }
+/*      END MESSAGES STYLES */
+
+
+/* end of navbar styles */
+
+
+/* New Articles */
+
+.fav {
+  height: 36px;
+  width: 36px;
+}
+
+#articles-view {
+  padding: 0;
+}
+
+#newsSection {
+  height: 100%;
+}
+
+#newsFeed {
+  padding-top: 0;
+  margin-top: 0;
+  height: calc(100% - 55px);
+  overflow-y: auto;
+}
+
+/* #events-view styles */
+#events-view {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.event-name {
+  border-bottom: 1px solid lightgray;
+  margin-top: 0;
+}
+.events-nav-header {
+  border-bottom: 1px solid black;
+  max-height: 50px;
+}
+.form-top-padding {
+  padding-top: 20px;
+}
+.h2-spacing {
+  line-height: 1.7;
+}
+.panel-event {
+  margin: 0;
+  padding: 0;
+}
+.panel-body {
+  padding: 5px;
+}
+#events-view-data {
+  margin: 0px 10px 0px 10px;
+}
+/* END of #events-view styles */
+
 
 #createdMessage {
   align-self: center;
 }
 
 /* END OF MESSAGES STYLES */
+
