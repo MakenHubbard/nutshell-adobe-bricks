@@ -1,6 +1,7 @@
 const authEvents = require('./authEvents');
 const tasks = require('../tasks/taskUID');
 const friends = require('../friends/core');
+const events = require('../events/eventsUid');
 
 let uid = '';
 
@@ -11,6 +12,7 @@ const setUID = (newUID) => {
   uid = newUID;
   tasks.setTaskUID(newUID);
   friends.setCurrentUid(newUID);
+  events.setUid(newUID);
 };
 
 const checkLoginStatus = () => {
