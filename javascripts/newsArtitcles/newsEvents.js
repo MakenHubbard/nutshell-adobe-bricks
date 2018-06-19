@@ -60,7 +60,6 @@ const editArticleEvent = () => {
 const sendEditedArticle = () => {
   $(document).on('click', '#editArticle', (e) => {
     e.preventDefault();
-    console.log(e);
     const articleToUpdateId = e.target.dataset.firebaseId;
     const titleInput = $(`#title${articleToUpdateId}`).val();
     const urlInput = $(`#url${articleToUpdateId}`).val();

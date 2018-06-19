@@ -5,7 +5,6 @@ let uid = '';
 
 const setNewsUID = (currentUid) => {
   uid = currentUid;
-  console.log(uid);
 };
 const getNewsUID = (uid) => {
   return uid;
@@ -47,7 +46,6 @@ const getArticles = () => {
             allNewsObject[fbkey].id = fbkey;
             allNewsArray.push(allNewsObject[fbkey]);
             // dom(allNewsArray);
-            console.log(allNewsArray);
           });
         }
         resolve(allNewsArray);
