@@ -191,9 +191,9 @@ body {
 #events-view {
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  /* overflow-y: inherit; */
+  /* overflow-x: hidden; */
+  /* box-sizing: border-box; */
 }
 .event-name {
   border-bottom: 1px solid darkgray;
@@ -218,6 +218,8 @@ body {
 }
 #events-view-data {
   margin: 0px 10px 0px 10px;
+  height: calc(100% - 60px);
+  overflow-y: auto;
 }
 .gray {
   color: lightgrey;
@@ -232,3 +234,6 @@ body {
 
 /* END OF MESSAGES STYLES */
 
+#events-header-view {
+  height: 100%;
+}
