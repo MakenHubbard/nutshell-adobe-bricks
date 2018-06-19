@@ -1,3 +1,5 @@
+// News Anchor : Brian Wright
+
 const friends = require('../friends/core');
 
 const buildUpArticle = (articlesArray) => {

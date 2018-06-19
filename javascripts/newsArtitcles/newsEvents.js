@@ -1,3 +1,5 @@
+// News Anchor : Brian Wright
+
 const firebaseApi = require('./newsFire');
 // const newsUID = require('./newsUID');
 
