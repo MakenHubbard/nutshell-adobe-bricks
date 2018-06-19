@@ -1,6 +1,7 @@
 // Maken - Building dom View,
 
 const { getAllUsernames, } = require('../firebase/firebaseApi');
+const { getMessageUID, } = require('./holdUID');
 
 const convertUserIdToUserName = (uid, userArray) => {
   return userArray.find((user) => {
@@ -14,16 +15,33 @@ const buildMessagesDomString = (allMessagesArray) => {
       let string = '';
       allMessagesArray.forEach((message) => {
         const sender = convertUserIdToUserName(message.userUid, userArray);
-        string += `<div class="panel panel-primary">`;
-        string += `<h4 id="WhoSaidIt">${sender}</h4>`;
-        string += `<p id="userMessage">${message.message}</br>${moment().format('LT')}</p>`;
-        string += `<div id="buttMessagesDiv">`;
-        string += `<button id="editButt" type="button" class="btn btn-default btn-xs">`;
-        string += `<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit`;
+        string += `<div class="panel panel-primary mess" data-firebase-id="${message.id}">`;
+        string += `<h4 id="WhoSaidIt" class="nameOfUser" data-nameOfUser="${sender}">${sender}</h4>`;
+        string += `<div>`;
+        string += `<input type="text" class="hide form-control changeMessageTextField" placeholder="" value="${message.message}">`;
+        string += `<p class="userMessage theMessage" data-theMessage="${message.message}">${message.message}</p>`;
+        string += `<p class="time" data-time="${moment(message.timestamp).format('LT')}">${moment(message.timestamp).format('LT')}`;
+        if (message.isEdited === true) {
+          string += `<span id="messageStatus" >     edited</span>`;
+        };
+        string += `</p>`;
+        string += `</div>`;
+        string += `<div class="buttMessagesDiv clearfix">`;
+        string += `<div class='float-right'>`;
+        string += `<button type="button" class="hide saveEdit btn btn-default btn-xs">`;
+        string += `<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Save`;
+        string += `<button type="button" class="hide cancelEdit btn btn-default btn-xs">`;
+        string += `<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Save`;
         string += `</button>`;
-        string += `<button id="deleteButt" type="button" class="btn btn-default btn-xs pull-right">`;
-        string += `<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete`;
-        string += `</button>`;
+        if (getMessageUID() === message.userUid) {
+          string += `<button type="button" class="editButt btn btn-default btn-xs">`;
+          string += `<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit`;
+          string += `</button>`;
+          string += `<button type="button" class="deleteButt btn btn-default btn-xs">`;
+          string += `<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete`;
+          string += `</button>`;
+        };
+        string += `</div>`;
         string += `</div>`;
         string += `</div>`;
       });

@@ -221,7 +221,7 @@
               <input type="text" class="form-control" placeholder="Filter" id="friend-search">
             </div>
             <ul class="list-group" id="available-friends-list">
-          
+
             </ul>
           </div>
           <div class="friends-panel tab-pane fade" id="current-friends-view">
@@ -247,12 +247,12 @@
         </div>
       </div>
       <div class="col-xs-12 left-module" id="messages-view">
-        <div class="panel panel-success">
+        <div id="messages-panel" class="panel panel-success">
           <div class="panel-heading clearfix">
-            <div class="col-xs-6">
+            <div id="p-title" class="col-xs-6">
               <h4 id="messages-title">Messages</h4>
             </div>
-            <div class="col-xs-6">
+            <div id="createButt"class="col-xs-6">
               <div class="input-group input-group-sm">
                 <span class="input-group-btn">
                   <button class="btn btn-default" id="add-message">New Message
@@ -260,6 +260,10 @@
                   </button>
                 </span>
               </div>
+            </div>
+            <div id="MessageTextField" class="hide">
+              <input type="text" id="newMessageTextField" class="form-control" placeholder="Say it don't spray it">
+              <button class="btn btn-danger btn-xs" id="createdMessage">Save</button>
             </div>
           </div>
           <div class="panel-body" id="messages-text">

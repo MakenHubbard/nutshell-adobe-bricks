@@ -74,7 +74,6 @@ body {
   margin-top: 2%;
   margin-bottom: 0;
   padding: 0;
-  overflow-y: scroll;
 }
 
 #friends-tabs {
@@ -127,16 +126,14 @@ body {
   padding-left: 10px;
 }
 
-#userMessage {
-  padding-left: 20px;
+.userMessage {
+  padding-left: 20px !important;
 }
 
-#editButt {
-  margin-left: 240px;
-}
-
-.pull-right {
-  float: right;
+#messageStatus {
+  font-size: 10px;
+  margin-top: 0;
+  margin-bottom: 3px;
 }
 
 #add-message {
@@ -147,6 +144,15 @@ body {
 
 #message-title {
   color: green;
+}
+
+#messages-panel {
+  height: 100%;
+}
+
+#messages-text {
+  height: calc(100% - 60px);
+  overflow-y: auto;
 }
 /*      END MESSAGES STYLES */
 
@@ -213,4 +219,11 @@ body {
   cursor: not-allowed;
 }
 /* END of #events-view styles */
+
+
+#createdMessage {
+  align-self: center;
+}
+
+/* END OF MESSAGES STYLES */
 
