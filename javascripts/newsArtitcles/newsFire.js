@@ -18,6 +18,7 @@ const checkConfig = () => {
 };
 
 const editArticle = (article, articleId) => {
+  article.userUid = uid;
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PUT',

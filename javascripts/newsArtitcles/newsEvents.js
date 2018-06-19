@@ -48,11 +48,44 @@ const removeArticle = () => {
   });
 };
 
-const favImageError = () => {
-  $(document).on('error', 'img', function () {
-    $(this).attr('src', 'https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-70-512.png');
+const editArticleEvent = () => {
+  $(document).on('click', '.editArticle', (e) => {
+    e.preventDefault();
+    const articleToEdit = e.target.dataset.firebaseId;
+    $(`.${articleToEdit}`).addClass('hide');
+    $(`.edit${articleToEdit}`).removeClass('hide');
   });
 };
+
+const sendEditedArticle = () => {
+  $(document).on('click', '#editArticle', (e) => {
+    e.preventDefault();
+    console.log(e);
+    const articleToUpdateId = e.target.dataset.firebaseId;
+    const titleInput = $(`#title${articleToUpdateId}`).val();
+    const urlInput = $(`#url${articleToUpdateId}`).val();
+    const synopsisInput = $(`#synopsis${articleToUpdateId}`).val();
+
+    const updatedArticle = {
+      title: titleInput ,
+      synopsis: synopsisInput,
+      url: urlInput,
+    };
+    firebaseApi.editArticle(updatedArticle, articleToUpdateId)
+      .then(() => {
+        firebaseApi.getArticles();
+      })
+      .catch((error) => {
+        console.error('error in the update movie', error);
+      });
+  });
+};
+
+// const favImageError = () => {
+//   $(document).on('error', 'img', function () {
+//     $(this).attr('src', 'https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-70-512.png');
+//   });
+// };
 
 // const showHideNewsFeed = () => {
 //   $(document).on('click','#plus', (e) => {
@@ -64,8 +97,10 @@ const newsInitializer = () => {
   saveArticleEvent();
   deleteArticleEvent();
   // showHideNewsFeed();
-  favImageError();
+  // favImageError();
   removeArticle();
+  editArticleEvent();
+  sendEditedArticle();
   // showArtciles();
 };
 
