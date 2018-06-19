@@ -24,7 +24,7 @@ const getAllMessages = () => {
 };
 
 const saveCreatedMessageToFirebase = (createdMessage) => {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
       url: `${getConfig().databaseURL}/messages.json`,
@@ -39,7 +39,23 @@ const saveCreatedMessageToFirebase = (createdMessage) => {
   });
 };
 
+const deleteMessageFromDb = (message) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${getConfig().databaseURL}/messages/${message}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   getAllMessages,
   saveCreatedMessageToFirebase,
+  deleteMessageFromDb,
 };
