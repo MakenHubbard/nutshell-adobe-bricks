@@ -31,7 +31,7 @@ const buildMessagesDomString = (allMessagesArray) => {
         string += `<button type="button" class="hide saveEdit btn btn-default btn-xs">`;
         string += `<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Save`;
         string += `<button type="button" class="hide cancelEdit btn btn-default btn-xs">`;
-        string += `<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Save`;
+        string += `<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel`;
         string += `</button>`;
         if (getMessageUID() === message.userUid) {
           string += `<button type="button" class="editButt btn btn-default btn-xs">`;
