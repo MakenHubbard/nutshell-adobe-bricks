@@ -15,9 +15,9 @@ const buildUpdateEventInputForm = objToUpdate => {
   </div>
   <div class="col-xs-8 col-xs-offset-1" id="${objToUpdate.id}">
     <form>
-      <div class="form-group form-top-padding">
-        <label for="eventName">Event Name: </label>
-        <input type="text" class="form-control" id="eventName" placeholder="" value="${objToUpdate.event}">
+      <div class="form-group form-top-padding inline-block">
+        <label for="eventName" class="inline-block">Event Name: </label>
+        <input type="text" class="form-control inline-block" id="eventName" placeholder="" value="${objToUpdate.event}">
       </div>
       <div class="form-group">
         <label for="eventLocation">Event Location: </label>
@@ -79,9 +79,9 @@ const buildAllEventsString = (inputEvents) => {
     output += `
     <div class="panel panel-default panel-event col-sm-4" id="${event.id}" data-uid="${event.userUid}">
         <div class="panel-body">
-          <h4 class="match-name text-center">${event.event}</h4>
+          <h4 class="event-name text-center">${event.event}</h4>
           <p class="event-location">${event.location}</p>
-          <p class="match-date">${event.startDate}</p>
+          <p class="event-date">${event.startDate}</p>
         </div>
         <div class="panel-footer text-center">
           <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>

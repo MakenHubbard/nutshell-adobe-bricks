@@ -185,7 +185,7 @@ body {
   box-sizing: border-box;
 }
 .event-name {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid darkgray;
   margin-top: 0;
 }
 .events-nav-header {
@@ -203,7 +203,7 @@ body {
   padding: 0;
 }
 .panel-body {
-  padding: 5px;
+  padding: 1px;
 }
 #events-view-data {
   margin: 0px 10px 0px 10px;
