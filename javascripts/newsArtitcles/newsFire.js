@@ -1,15 +1,66 @@
 const firebase = require('../firebase/firebaseApi/');
 const dom = require('./newsDom');
-let firebaseConfig = {};
 
-// let uid = '';
+let uid = '';
+
+const setNewsUID = (currentUid) => {
+  uid = currentUid;
+  console.log(uid);
+};
+const getNewsUID = (uid) => {
+  return uid;
+};
+
+let firebaseConfig = {};
 
 const checkConfig = () => {
   firebaseConfig = firebase.getConfig();
 };
 
+const editArticle = (article, articleId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${firebaseConfig.databaseURL}/articles/${articleId}.json`,
+      data: JSON.stringify(article),
+    })
+      .done((uniqueKey) => {
+        resolve(uniqueKey);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 const getArticles = () => {
   const allNewsArray = [];
+  return new Promise((resolve,reject) => {
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.databaseURL}/articles.json?orderBy="userUid"&equalTo="${uid}"`,
+    })
+      .done((allNewsObject) => {
+        if (allNewsObject !== null) {
+          Object.keys(allNewsObject).forEach((fbkey) => {
+            allNewsObject[fbkey].id = fbkey;
+            allNewsArray.push(allNewsObject[fbkey]);
+            // dom(allNewsArray);
+            console.log(allNewsArray);
+          });
+        }
+        resolve(allNewsArray);
+        getFriendsArticles(allNewsArray);
+        // dom.buildUpArticle(allNewsArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
+const getFriendsArticles = (articleArray1) => {
+  const allNewsFriendsArray = [];
   return new Promise((resolve,reject) => {
     $.ajax({
       method: 'GET',
@@ -19,11 +70,14 @@ const getArticles = () => {
         if (allNewsObject !== null) {
           Object.keys(allNewsObject).forEach((fbkey) => {
             allNewsObject[fbkey].id = fbkey;
-            allNewsArray.push(allNewsObject[fbkey]);
-            dom(allNewsArray);
+            allNewsFriendsArray.push(allNewsObject[fbkey]);
           });
         }
-        resolve(allNewsArray);
+        resolve(allNewsFriendsArray);
+        dom.buildUpArticle2(articleArray1,allNewsFriendsArray,uid);
+        console.log('artrile user',articleArray1);
+        console.log('all articles',allNewsFriendsArray);
+        console.log('userID',uid);
       })
       .fail((error) => {
         reject(error);
@@ -32,6 +86,7 @@ const getArticles = () => {
 };
 
 const saveArticles = (newArticle) => {
+  newArticle.userUid = uid;
   return new Promise((resolve,reject) => {
     $.ajax({
       method: 'POST',
@@ -66,7 +121,7 @@ const deleteArticle = (articleId) => {
 const firebaseCRUD = () => {
   checkConfig();
   getArticles();
-  saveArticles();
+  // saveArticles();
   deleteArticle();
 };
 
@@ -75,4 +130,7 @@ module.exports = {
   saveArticles,
   getArticles,
   deleteArticle,
+  editArticle,
+  setNewsUID,
+  getNewsUID,
 };
