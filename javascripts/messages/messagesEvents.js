@@ -67,9 +67,21 @@ const editMessageInputField = () => {
     messageClickedToEdit.find('.editButt').addClass('hide');
     messageClickedToEdit.find('.deleteButt').addClass('hide');
     messageClickedToEdit.find('.saveEdit').removeClass('hide');
-    messageClickedToEdit.find('.cancelEdit').addClass('hide');
+    messageClickedToEdit.find('.cancelEdit').removeClass('hide');
     messageClickedToEdit.find('.changeMessageTextField').removeClass('hide');
     messageClickedToEdit.find('.userMessage').addClass('hide');
+  });
+};
+
+const cancelButtonEvent = () => {
+  $(document).on('click', '.cancelEdit', (e) => {
+    const messageClickedToEdit = $(e.target).closest('.mess');
+    messageClickedToEdit.find('.editButt').removeClass('hide');
+    messageClickedToEdit.find('.deleteButt').removeClass('hide');
+    messageClickedToEdit.find('.saveEdit').addClass('hide');
+    messageClickedToEdit.find('.cancelEdit').addClass('hide');
+    messageClickedToEdit.find('.changeMessageTextField').addClass('hide');
+    messageClickedToEdit.find('.userMessage').removeClass('hide');
   });
 };
 
@@ -112,6 +124,7 @@ const initializer = () => {
   saveButtonEvent();
   deleteMessagesFromFirebase();
   saveEditButtonEvent();
+  cancelButtonEvent();
 };
 
 module.exports = {

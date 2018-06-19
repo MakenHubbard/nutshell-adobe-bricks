@@ -60,6 +60,7 @@ const bindEventsData = () => {
   });
 
   $('#events-view').on('click', '#event-btn-add-new', e => {
+    e.preventDefault();
     $('#events-header-view').addClass('hide');
     const eventToAdd = {
       'event': `${$('#eventName').val()}`,

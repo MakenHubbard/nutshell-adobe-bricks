@@ -1,7 +1,8 @@
 body {
-  background-color: #aaffaa;
-  background-image: url('/images/bricks.jpg');
-  background-size: cover;
+  background-color: darkred;
+  background-image: url('/images/greylinen.png');
+  /* background-size: cover; */
+  background-repeat: repeat;
 }
 
 #authentication {
@@ -12,6 +13,10 @@ body {
   height: 90vh;
   /* padding-top: 60px; */
 }
+
+#signin-form, #register-form {
+  padding-top: 10px;
+}
 /* LEFT SIDE MODULE STYLES */
 
 #left-side {
@@ -20,7 +25,7 @@ body {
 
 .left-module {
   height: 30%;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   margin-bottom: 2%;
 }
 
@@ -70,7 +75,7 @@ body {
 
 #messages-view {
   height: 63%;
-  background-color: purple;
+  /* background-color: purple; */
   margin-top: 2%;
   margin-bottom: 0;
   padding: 0;
@@ -114,8 +119,8 @@ body {
 /* NAVBAR STYLES */
 
 .navbar {
-  background-color: pink;
-  color: purple;
+  background-color: black;
+  color: peachpuff;
 }
 
 /* END OF NAVBAR STYLES */
