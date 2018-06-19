@@ -61,6 +61,21 @@ const buildEventInputForm = () => {
   printToDom(output, '#events-view-data');
 };
 
+const printButtonsOrNot = inputEvent => {
+  if (inputEvent.userUid === events.getUid()) {
+    // if true, the logged in user can edit/delete event
+    const output = `
+    <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>`;
+    return output;
+  } else {
+    // else, the user cannot edit/delete the event
+    const output = `<span class="glyphicon glyphicon-pencil gray" title="You do not have permission to edit this event" aria-hidden="true" disabled></span>
+    <span class="glyphicon glyphicon-trash gray" title="You do not have permission to delete this event" aria-hidden="true" disabled></span>`;
+    return output;
+  }
+};
+
 const buildAllEventsString = (inputEvents) => {
   const matchedArray = [];
   let output = '';
@@ -83,9 +98,9 @@ const buildAllEventsString = (inputEvents) => {
           <p class="event-location">${event.location}</p>
           <p class="event-date">${event.startDate}</p>
         </div>
+
         <div class="panel-footer text-center">
-          <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
-          <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>
+          ${printButtonsOrNot(event)}
         </div>
         </div>`;
     printToDom(output, '#events-view-data');

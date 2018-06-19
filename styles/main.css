@@ -208,5 +208,9 @@ body {
 #events-view-data {
   margin: 0px 10px 0px 10px;
 }
+.gray {
+  color: lightgrey;
+  cursor: not-allowed;
+}
 /* END of #events-view styles */
 
