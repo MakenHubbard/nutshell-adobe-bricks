@@ -59,7 +59,7 @@ const buildUpArticle2 = (articlesArray, articlesArray2) => {
     for (let i = 0; i < articlesArray2.length; i++) {
       for (let j = 0; j < myfriends.length; j++) {
         if (myfriends[j] === articlesArray2[i].userUid) {
-          string += `<div class="panel panel-default">`;
+          string += `<div class="panel panel-default ${articlesArray2[i].id}">`;
           string += `<div class="panel-body">`;
           string += `<div class="media">`;
           string += `<div class="media-left media-top">`;
@@ -73,7 +73,7 @@ const buildUpArticle2 = (articlesArray, articlesArray2) => {
           string +=  `<h4 class="media-heading">${articlesArray2[i].title}</h4>`;
           string += `<p>${articlesArray2[i].synopsis}</p>`;
           string += `<p>`;
-          string += `<button type="button" class="btn btn-danger btn-xs deleteArticle" data-firebase-id=${articlesArray2[i].id}> Delete Article</button>`;
+          string += `<button type="button" class="btn btn-danger btn-xs removeArticle" data-firebase-id=${articlesArray2[i].id}> Remove Article</button>`;
           string += `<p>`;
           string +=  `</div>`;
           string +=  `</div>`;

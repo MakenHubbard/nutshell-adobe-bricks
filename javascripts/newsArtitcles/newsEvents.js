@@ -1,4 +1,7 @@
 const firebaseApi = require('./newsFire');
+// const newsUID = require('./newsUID');
+
+// let uid = newsUID.getNewsUID();
 
 const saveArticleEvent = () => {
   $(document).on('click','#newArticle', (e) => {
@@ -37,15 +40,23 @@ const deleteArticleEvent = () => {
   });
 };
 
+const removeArticle = () => {
+  $(document).on('click', '.removeArticle',  (e) => {
+    e.preventDefault();
+    const articleToRemove = e.target.dataset.firebaseId;
+    $(`.${articleToRemove}`).addClass('hide');
+  });
+};
+
+const favImageError = () => {
+  $(document).on('error', 'img', function () {
+    $(this).attr('src', 'https://cdn3.iconfinder.com/data/icons/ballicons-reloaded-free/512/icon-70-512.png');
+  });
+};
+
 // const showHideNewsFeed = () => {
 //   $(document).on('click','#plus', (e) => {
 //     // $('#newsFeed').toggle();
-//   });
-// };
-
-// const favImageError = () => {
-//   $(document).on('error','.fav', (e) => {
-
 //   });
 // };
 
@@ -53,7 +64,9 @@ const newsInitializer = () => {
   saveArticleEvent();
   deleteArticleEvent();
   // showHideNewsFeed();
-  // favImageError();
+  favImageError();
+  removeArticle();
+  // showArtciles();
 };
 
 module.exports = newsInitializer;

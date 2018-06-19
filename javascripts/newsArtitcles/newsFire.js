@@ -75,9 +75,6 @@ const getFriendsArticles = (articleArray1) => {
         }
         resolve(allNewsFriendsArray);
         dom.buildUpArticle2(articleArray1,allNewsFriendsArray,uid);
-        console.log('artrile user',articleArray1);
-        console.log('all articles',allNewsFriendsArray);
-        console.log('userID',uid);
       })
       .fail((error) => {
         reject(error);
