@@ -1,7 +1,8 @@
 body {
   background-color: darkred;
-  /* background-image: url('/images/bricks.jpg'); */
+  background-image: url('/images/greylinen.png');
   /* background-size: cover; */
+  background-repeat: repeat;
 }
 
 #authentication {
@@ -11,6 +12,10 @@ body {
 #main-view {
   height: 90vh;
   /* padding-top: 60px; */
+}
+
+#signin-form, #register-form {
+  padding-top: 10px;
 }
 /* LEFT SIDE MODULE STYLES */
 
