@@ -1,6 +1,8 @@
 // Andy Million
 // For event DOM related stuff
 
+const events = require('./eventsUid');
+
 const printToDom = (eventsDom, eventsId) => {
   $(eventsId).html(eventsDom);
 };
@@ -60,22 +62,34 @@ const buildEventInputForm = () => {
 };
 
 const buildAllEventsString = (inputEvents) => {
+  const matchedArray = [];
   let output = '';
+  const loggedInUser = events.getUid();
+  const friendArray = events.getFriends();
+  // Iterate through filtered/unfiltered list
   inputEvents.forEach(event => {
+    friendArray.forEach(friend => {
+      if (loggedInUser === event.userUid || event.userUid === friend) {
+        matchedArray.push(event);
+      }
+    });
+  });
+  const uniqueMatchedArray = [...new Set(matchedArray),];
+  uniqueMatchedArray.forEach(event => {
     output += `
     <div class="panel panel-default panel-event col-sm-4" id="${event.id}" data-uid="${event.userUid}">
-      <div class="panel-body">
-        <h4 class="event-name text-center">${event.event}</h4>
-        <p class="event-location">${event.location}</p>
-        <p class="event-date">${event.startDate}</p>
-      </div>
-      <div class="panel-footer text-center">
-        <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>
-      </div>
-    </div>`;
+        <div class="panel-body">
+          <h4 class="match-name text-center">${event.event}</h4>
+          <p class="event-location">${event.location}</p>
+          <p class="match-date">${event.startDate}</p>
+        </div>
+        <div class="panel-footer text-center">
+          <span class="glyphicon glyphicon-pencil" title="Edit This Event" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-trash" title="Delete This Event" aria-hidden="true"></span>
+        </div>
+        </div>`;
+    printToDom(output, '#events-view-data');
   });
-  printToDom(output, '#events-view-data');
 };
 
 module.exports = {

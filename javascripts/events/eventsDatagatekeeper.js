@@ -27,13 +27,13 @@ const eventToGET = () => {
       });
   });
 };
-const requestEventGET = () => {
+const requestEventGET = friends => {
   eventToGET()
     .then(allEvents => {
       return allEvents;
     })
     .then(allEvents => {
-      eventsDom.buildAllEventsString(allEvents);
+      eventsDom.buildAllEventsString(allEvents, friends);
     })
     .catch(error => {
       console.error('Error during Firebase request', error);

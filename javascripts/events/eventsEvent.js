@@ -3,10 +3,10 @@
 
 const eventsDataGateKP = require ('./eventsDatagatekeeper');
 const eventsDom = require('./eventsDom');
-const auth = require('../auth/auth');
+const eventsUid = require('./eventsUid');
 
 const canUserModifyEvents = idToTest => {
-  if (auth.getUID() === idToTest) {
+  if (eventsUid.getUid() === idToTest) {
     return true;
   } else {
     return false;
@@ -65,10 +65,10 @@ const bindEventsData = () => {
       'event': `${$('#eventName').val()}`,
       'location': `${$('#eventLocation').val()}`,
       'startDate': `${$('#eventDate').val()}`,
-      'userUid': auth.getUID(),
+      'userUid': eventsUid.getUid(),
     };
     eventsDataGateKP.requestEventPOST(eventToAdd);
-    eventsDataGateKP.requestEventGET();
+    eventsDataGateKP.requestEventGET(eventsUid.getUid());
     $('#events-header-view').removeClass('hide');
   });
 
@@ -79,13 +79,13 @@ const bindEventsData = () => {
       'event': $('#eventName').val(),
       'location': $('#eventLocation').val(),
       'startDate': $('#eventDate').val(),
-      'userUid': auth.getUID(),
+      'userUid': eventsUid.getUid(),
     };
     $('#events-header-view').removeClass('hide');
     $('#events-header-buttons').removeClass('hide');
     $('#events-view-nav').removeClass('hide');
     eventsDataGateKP.requestEventPUT(eventToUpdate, eventId);
-    eventsDataGateKP.requestEventGET();
+    // eventsDataGateKP.requestEventGET(auth.getUID());
   });
 
   $('#events-view').on('click', '#event-btn-cancel-new', e => {
@@ -95,7 +95,7 @@ const bindEventsData = () => {
     $('#eventName').val('');
     $('#eventLocation').val('');
     $('#eventDate').val('');
-    eventsDataGateKP.requestEventGET();
+    eventsDataGateKP.requestEventGET(eventsUid.getUid());
   });
 };
 
