@@ -63,13 +63,7 @@ const initializeFriendsData = () => {
 // this is used to prevent users with existing requests from showing up in the finder
 const checkIfRequested = (friendUid) => {
   return friendsStore.find(friendReq => {
-    if (friendReq.userUid === currentUid && friendReq.friendUid === friendUid) {
-      return true;
-    } else if (friendReq.userUid === friendUid && friendReq.friendUid === currentUid) {
-      return true;
-    } else {
-      return false;
-    }
+    return ((friendReq.userUid === currentUid && friendReq.friendUid === friendUid) || (friendReq.userUid === friendUid && friendReq.friendUid === currentUid));
   });
 };
 
@@ -124,11 +118,7 @@ const populateViews = () => {
     return friendStrings.createRejectedFriendListItem(friendReq.userUid, getDisplayName(friendReq.userUid));
   }));
 
-  if (getPendingRequests().length) {
-    $('#pending-friends-badge').text(getPendingRequests().length);
-  } else {
-    $('#pending-friends-badge').text('');
-  }
+  $('#pending-friends-badge').text(getPendingRequests().length ? getPendingRequests().length : '');
 };
 
 const createFriendRequest = (fUid) => {
