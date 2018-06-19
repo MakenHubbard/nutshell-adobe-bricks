@@ -9,21 +9,12 @@ const convertUserIdToUserName = (uid, userArray) => {
   }).username;
 };
 
-// const getFirebaseIdForMessage = (userArray) => {
-//   for (let h = 0; h < userArray.length; h++) {
-//     const id = userArray[h].id;
-//     return id;
-//   };
-// };
-
 const buildMessagesDomString = (allMessagesArray) => {
   getAllUsernames()
     .then((userArray) => {
       let string = '';
       allMessagesArray.forEach((message) => {
         const sender = convertUserIdToUserName(message.userUid, userArray);
-        console.log('message', message);
-        console.log('userArray', userArray);
         string += `<div class="panel panel-primary mess" data-firebase-id="${message.id}">`;
         string += `<h4 id="WhoSaidIt" class="nameOfUser" data-nameOfUser="${sender}">${sender}</h4>`;
         string += `<div>`;
@@ -39,6 +30,8 @@ const buildMessagesDomString = (allMessagesArray) => {
         string += `<div class='float-right'>`;
         string += `<button type="button" class="hide saveEdit btn btn-default btn-xs">`;
         string += `<span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span> Save`;
+        string += `<button type="button" class="hide cancelEdit btn btn-default btn-xs">`;
+        string += `<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Save`;
         string += `</button>`;
         if (getMessageUID() === message.userUid) {
           string += `<button type="button" class="editButt btn btn-default btn-xs">`;
@@ -53,7 +46,6 @@ const buildMessagesDomString = (allMessagesArray) => {
         string += `</div>`;
       });
       printMessagesToDom(string);
-      // console.log(string);
     })
     .catch((error) => {
       console.error('error in convert id to user name function', error);

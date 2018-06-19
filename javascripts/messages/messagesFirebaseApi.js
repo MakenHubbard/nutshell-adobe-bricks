@@ -39,6 +39,22 @@ const saveCreatedMessageToFirebase = (createdMessage) => {
   });
 };
 
+const saveEditMessageToFirebase = (edittedMessage,id) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${getConfig().databaseURL}/messages/${id}.json`,
+      data: JSON.stringify(edittedMessage),
+    })
+      .done((uniqueKey) => {
+        resolve(uniqueKey);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 const deleteMessageFromDb = (message) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -58,4 +74,5 @@ module.exports = {
   getAllMessages,
   saveCreatedMessageToFirebase,
   deleteMessageFromDb,
+  saveEditMessageToFirebase,
 };

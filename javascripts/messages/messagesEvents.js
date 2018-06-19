@@ -1,3 +1,4 @@
+// Maken - This is where the stuff does
 const getMsgData = require('./messagesFirebaseApi');
 const dom = require('./messagesDom');
 const UIDS = require('./holdUID');
@@ -37,12 +38,36 @@ const saveButtonEvent = () => {
   });
 };
 
+const saveEditButtonEvent = () => {
+  $(document).on('click', '.saveEdit', (e) => {
+    const messageClickedToEdit = $(e.target).closest('.mess');
+    const id = messageClickedToEdit.data('firebaseId');
+    messageClickedToEdit.find('.editButt').removeClass('hide');
+    messageClickedToEdit.find('.deleteButt').removeClass('hide');
+    messageClickedToEdit.find('.saveEdit').addClass('hide');
+    messageClickedToEdit.find('.cancelEdit').addClass('hide');
+    messageClickedToEdit.find('.changeMessageTextField').addClass('hide');
+    messageClickedToEdit.find('.userMessage').removeClass('hide');
+    const message = messageClickedToEdit.find('.changeMessageTextField').val();
+    const uid = UIDS.getMessageUID();
+    const newTime = moment();
+    const editedMessage = {
+      message: message,
+      userUid: uid,
+      timestamp: newTime,
+      isEdited: true,
+    };
+    sendEditedMessage(editedMessage,id);
+  });
+};
+
 const editMessageInputField = () => {
   $(document).on('click', '.editButt', (e) => {
     const messageClickedToEdit = $(e.target).closest('.mess');
     messageClickedToEdit.find('.editButt').addClass('hide');
     messageClickedToEdit.find('.deleteButt').addClass('hide');
     messageClickedToEdit.find('.saveEdit').removeClass('hide');
+    messageClickedToEdit.find('.cancelEdit').addClass('hide');
     messageClickedToEdit.find('.changeMessageTextField').removeClass('hide');
     messageClickedToEdit.find('.userMessage').addClass('hide');
   });
@@ -58,9 +83,18 @@ const sendNewMessage = (addedMessage) => {
     });
 };
 
+const sendEditedMessage = (editMessage,id) => {
+  getMsgData.saveEditMessageToFirebase(editMessage,id)
+    .then((result) => {
+      showMessages();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 const deleteMessagesFromFirebase = () => {
-  $(document).on('click', '#deleteButt', (e) => {
-    console.log(e);
+  $(document).on('click', '.deleteButt', (e) => {
     const messageToDelete = $(e.target).closest('.mess').data('firebaseId');
     getMsgData.deleteMessageFromDb(messageToDelete)
       .then(() => {
@@ -77,6 +111,7 @@ const initializer = () => {
   editMessageInputField();
   saveButtonEvent();
   deleteMessagesFromFirebase();
+  saveEditButtonEvent();
 };
 
 module.exports = {

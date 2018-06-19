@@ -74,7 +74,6 @@ body {
   margin-top: 2%;
   margin-bottom: 0;
   padding: 0;
-  overflow-y: scroll;
 }
 
 #friends-tabs {
@@ -127,8 +126,8 @@ body {
   padding-left: 10px;
 }
 
-#userMessage {
-  padding-left: 20px;
+.userMessage {
+  padding-left: 20px !important;
 }
 
 #messageStatus {
@@ -145,6 +144,15 @@ body {
 
 #message-title {
   color: green;
+}
+
+#messages-panel {
+  height: 100%;
+}
+
+#messages-text {
+  height: calc(100% - 60px);
+  overflow-y: auto;
 }
 /*      END MESSAGES STYLES */
 
